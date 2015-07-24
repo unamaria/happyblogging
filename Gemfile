@@ -38,6 +38,9 @@ group :development, :test do
 
   # Use awesome_print for better output in console
   gem 'awesome_print'
+
+  # Use Rspec to test
+  gem 'rspec-rails', '~> 3.0'
 end
 
 group :development do
