@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
   root to: 'home#index'
+  devise_for :users
+  get 'users/profile/:handle' => 'users#show', as: 'user'
 end
