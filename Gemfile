@@ -41,6 +41,9 @@ group :development, :test do
 
   # Use Rspec to test
   gem 'rspec-rails', '~> 3.0'
+
+  # Use faker to create fake data
+	gem 'faker', '1.4.3'
 end
 
 group :development do

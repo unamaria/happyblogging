@@ -14,7 +14,7 @@ class UsersController < ApplicationController
 	end
 
 	def show
-		@user = User.find(current_user.id) # ur current_user.name etc in view?
+		@user = User.find(current_user.id) # or current_user.name etc in view?
 	end
 
 	private
