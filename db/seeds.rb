@@ -9,6 +9,6 @@
 
 	3.times do
 		u.posts << Post.new(title: Faker::Lorem.sentence, 
-			content: Faker::Lorem.paragraph(7, false, 4))
+			body: Faker::Lorem.paragraph(7, false, 4))
 	end
 end
