@@ -1,0 +1,13 @@
+$ruby: #B70F23;
+
+input {
+	padding: .5em;
+  margin: 1em 0;
+}
+
+div.actions input {
+	font-size: 100%;
+  background-color: $ruby;
+  border: none;
+  color: #FFF;
+}

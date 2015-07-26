@@ -7,11 +7,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<header>
+<header class="container">
 	<nav>
-		<ul>
+		<ul class="user-nav">
 			<% if current_user %>
-			<li><%= link_to 'New post', new_post_path %></li>
+			<li><%= link_to 'New post', new_post_path(current_user.handle) %></li>
 			<li><%= link_to current_user.name, user_path(current_user.handle) %></li>
 			<li><%= link_to 'Sign out', destroy_user_session_path, method: 'delete' %></li>
 			<% else %>
@@ -19,13 +19,13 @@
 				<li><%= link_to 'Sign in', user_session_path %></li>
 			<% end %>
 		</ul>
+		<img class="logo" src=<%= image_path("logo.png") %> alt="Happy blogging logo">
 	</nav>
-	<h1>Happy blogging</h1>
 </header>
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
 
-<main>
+<main class="container">
 <%= yield %>
 </main>
 

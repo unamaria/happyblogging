@@ -1,0 +1,47 @@
+$ruby: #B70F23;
+$serif: "Times New Roman", Times, Baskerville, Georgia, serif;
+$sans: Arial, "Helvetica Neue", Helvetica, sans-serif;
+
+body {
+	font-family: $serif;
+	font-size: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: $sans;
+}
+
+h1 {
+	font-size: 2em;
+	color: $ruby;
+}
+
+h2 {
+	font-size: 1.5em;
+	padding: 1em 0;
+}
+
+.container {
+	padding: 1em;
+}
+
+.logo {
+	max-width: 3em;
+}
+
+header {
+	border-top: .2em solid $ruby;
+	nav li {
+		display: inline-block;
+	}
+}
+
+.user-nav li {
+	float: right;
+	font-family: $sans;
+	a {
+		text-decoration: none;
+		margin-left: 1.5em;
+	}
+}
+
