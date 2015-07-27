@@ -1,3 +1,7 @@
-<% @blogitems.each do |blogitem| %>
-	<%= render partial: blogitem.content %>
+<% if @blogitems %>
+	<% @blogitems.each do |blogitem| %>
+		<%= render partial: blogitem.content %>
+	<% end %>
+<% else %>
+	<p>This user has no posts yet!</p>	
 <% end %>

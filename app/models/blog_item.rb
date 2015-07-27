@@ -5,6 +5,8 @@ class BlogItem < ActiveRecord::Base
 	def content
 		if item_type == 'PostItem'
 			PostItem.find(item_id)
+		elsif item_type == 'FlickrItem'
+			FlickrItem.find(item_id)
 		end
 	end
 end
