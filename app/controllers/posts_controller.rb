@@ -1,7 +1,5 @@
 class PostsController < ApplicationController
 	def index
-		# not working
-		raise params[:handle]
 		@posts = Post.joins(:author).where(users: {handle: params[:handle]})
 	end
 
@@ -11,16 +9,17 @@ class PostsController < ApplicationController
 
 	def create
 		post = Post.new(post_params)
+		user = User.find_by_handle(params[:user_id])
+		post.author = user
 		if post.save
-			handle = params[:handle]
-			redirect_to post_path(handle, post.id)
+			redirect_to user_post_path(user.handle, post.id)
 		else
 			render :new
 		end
 	end
 
 	def show
-		@post = Post.find(params[:post_id])
+		@post = Post.find(params[:id])
 	end
 
 	private
