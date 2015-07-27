@@ -30,6 +30,6 @@ class PostItemsController < ApplicationController
 	end
 
 	def create_blog_item(user, post)
-		BlogItem.create!(user_id: user.id, item_id: post.id, item_type: 'Post')
+		BlogItem.create!(user_id: user.id, item_id: post.id, item_type: 'PostItem')
 	end
 end
