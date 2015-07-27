@@ -7,8 +7,8 @@
 	u.password = 'testtest'
 	u.save
 
-	3.times do
-		u.posts << Post.new(title: Faker::Lorem.sentence, 
-			body: Faker::Lorem.paragraph(7, false, 4))
-	end
+	# 3.times do
+	# 	u.posts << Post.new(title: Faker::Lorem.sentence, 
+	# 		body: Faker::Lorem.paragraph(7, false, 4))
+	# end
 end
