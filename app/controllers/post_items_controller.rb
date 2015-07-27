@@ -1,4 +1,4 @@
-class PostsController < ApplicationController
+class PostItemsController < ApplicationController
 	def index
 		@posts = Post.joins(:author).where(users: {handle: params[:handle]})
 	end
