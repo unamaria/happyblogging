@@ -1,6 +1,7 @@
 class PostItemsController < ApplicationController
 	def index
-		@posts = PostItem.joins(:author).where(users: {handle: params[:handle]})
+		# postitems don't have author (blog items do)
+		# @posts = PostItem.joins(:author).where(users: {handle: params[:handle]})
 	end
 
 	def new
@@ -12,7 +13,7 @@ class PostItemsController < ApplicationController
 		user = User.find_by_handle(params[:user_id])
 		if post.save
 			create_blog_item(user, post)
-			redirect_to user_post_path(user.handle, post.id)
+			redirect_to user_post_item_path(user.handle, post.id)
 		else
 			render :new
 		end
@@ -29,6 +30,6 @@ class PostItemsController < ApplicationController
 	end
 
 	def create_blog_item(user, post)
-		BlogItem.create!(user_id: user.id, item_id: post.id, type: 'Post')
+		BlogItem.create!(user_id: user.id, item_id: post.id, item_type: 'Post')
 	end
 end
