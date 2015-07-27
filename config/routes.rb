@@ -3,7 +3,12 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { registrations: 'registrations' }
   get 'users/profile/:handle' => 'users#show', as: 'user'
   get ':handle' => 'posts#index'
-  get ':handle/posts/new' => 'posts#new', as: 'new_post' # nest posts to handle?
-  post ':handle/posts' => 'posts#create'
-  get ':handle/posts/:post_id' => 'posts#show', as: 'post'
+
+
+  resources :users, only: [] do
+  	resources :posts 
+  end
+  # get ':handle/posts/new' => 'posts#new', as: 'new_post' # nest posts to handle?
+  # post ':handle/posts' => 'posts#create'
+  # get ':handle/posts/:post_id' => 'posts#show', as: 'post'
 end

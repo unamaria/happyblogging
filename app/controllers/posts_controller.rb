@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
 	def index
+		# not working
+		raise params[:handle]
 		@posts = Post.joins(:author).where(users: {handle: params[:handle]})
 	end
 
