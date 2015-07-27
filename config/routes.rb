@@ -8,7 +8,4 @@ Rails.application.routes.draw do
   resources :users, only: [] do
   	resources :posts 
   end
-  # get ':handle/posts/new' => 'posts#new', as: 'new_post' # nest posts to handle?
-  # post ':handle/posts' => 'posts#create'
-  # get ':handle/posts/:post_id' => 'posts#show', as: 'post'
 end
