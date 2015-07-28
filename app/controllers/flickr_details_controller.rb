@@ -6,7 +6,8 @@ class FlickrDetailsController < ApplicationController
 	end
 
 	def create
-		create(flickr_detail_params.merge(
+		flickrID = FlickrDetail.flickrID(params[:username])
+		FlickrDetail.create(flickr_detail_params.merge(
 			{nsid: flickrID, user_id: @user.id}))
 
 		redirect_to user_path(@user.handle)
