@@ -9,6 +9,11 @@ body {
 	font-size: 100%;
 }
 
+main {
+  max-width: 15em;
+	margin: 0 auto;
+}
+
 p, a, li {
 	padding: .5em 0;
 	line-height: 1.6;
