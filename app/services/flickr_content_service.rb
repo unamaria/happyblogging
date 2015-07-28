@@ -40,12 +40,12 @@ class FlickrContentService
 	def create_flickr_items(user)
 		photo_ids = get_photos(user.flickr_detail.nsid)
 		photo_ids.each do |photo_id|
-			photo_info = get_photo_info(photo_id)
+			photo_info = get_photo_info(photo_id)['photo']
 			flickr_item = FlickrItem.create(
 				title: photo_info['title']['_content'],
 				photo_id: photo_id,
-				description: photo_info['description']['_content'],
-				posted_at: photo_info['dates']['posted']
+				description: photo_info['description']['_content'], # strip
+				posted_at: photo_info['dates']['posted'] # nil, why?
 				)
 			flickr_item.blog_item = BlogItem.create(user_id: user.id, item_type: 'FlickrItem')
 		end

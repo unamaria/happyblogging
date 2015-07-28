@@ -44,6 +44,9 @@ group :development, :test do
 
   # Use faker to create fake data
 	gem 'faker', '1.4.3'
+
+	# Use pry-bye bug for debugging
+	gem 'pry-byebug'
 end
 
 group :development do
