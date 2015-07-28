@@ -13,6 +13,10 @@ class FlickrDetailsController < ApplicationController
 		redirect_to user_path(@user.handle)
 	end
 
+	def edit
+		@flickr_detail = FlickrDetail.new
+	end
+
 	def update
 		flickr_detail = @user.flickr_detail.find(params[:id])
 		flickr_detail.update(flickr_detail_params.merge(
