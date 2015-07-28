@@ -1,4 +1,5 @@
 $ruby: #B70F23;
+$light_gray: #CDCDCD;
 $serif: "Times New Roman", Times, Baskerville, Georgia, serif;
 $sans: Arial, "Helvetica Neue", Helvetica, sans-serif;
 
@@ -7,8 +8,14 @@ body {
 	font-size: 100%;
 }
 
+p, a, li {
+	padding: .5em 0;
+	line-height: 1.6;
+}
+
 h1, h2, h3, h4, h5, h6 {
 	font-family: $sans;
+	padding: 1em 0;
 }
 
 h1 {
@@ -18,8 +25,19 @@ h1 {
 
 h2 {
 	font-size: 1.5em;
-	padding: 1em 0;
 }
+
+strong {
+	font-weight: bold;
+}
+
+blockquote {
+	border-left: .5em solid $light_gray;
+  padding-left: 1em;
+	p {
+		font-style: italic;
+	}
+} 
 
 .container {
 	padding: 1em;
