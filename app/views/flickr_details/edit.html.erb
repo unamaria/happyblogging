@@ -1,0 +1,9 @@
+<h2>Flickr username</h2>
+<p>Did you change your username in Flickr? No problem!</p>
+<%= form_for @flickr_detail, url: {action: "update"} do |f| %>
+
+	<%= f.label :username %><br />
+	<%= f.text_field :username %><br />
+
+  <%= f.submit "Update" %>
+<% end %>

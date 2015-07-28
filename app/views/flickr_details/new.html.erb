@@ -1,0 +1,9 @@
+<h2>Flickr username</h2>
+<p>Add your Flickr's username to display your beautiful pictures in your blog!</p>
+<%= form_for @flickr_detail, url: {action: "create"} do |f| %>
+
+	<%= f.label :username %><br />
+	<%= f.text_field :username %><br />
+
+  <%= f.submit "Save" %>
+<% end %>

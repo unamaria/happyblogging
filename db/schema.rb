@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150728133022) do
+ActiveRecord::Schema.define(version: 20150728142816) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20150728133022) do
     t.string   "item_type"
   end
 
-  create_table "flickr_data", force: :cascade do |t|
+  create_table "flickr_details", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "username"
     t.string   "nsid"
