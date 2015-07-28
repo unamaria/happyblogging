@@ -1,7 +1,8 @@
 $ruby: #B70F23;
 $light_gray: #CDCDCD;
-$serif: "Times New Roman", Times, Baskerville, Georgia, serif;
-$sans: Arial, "Helvetica Neue", Helvetica, sans-serif;
+$gray: #8A8A8A;
+$serif: 'Lora' Times, Baskerville, Georgia, serif;
+$sans: 'Ubuntu', Arial, "Helvetica Neue", Helvetica, sans-serif;
 
 body {
 	font-family: $serif;
@@ -15,6 +16,7 @@ p, a, li {
 
 h1, h2, h3, h4, h5, h6 {
 	font-family: $sans;
+	font-weight: bold;
 	padding: 1em 0;
 }
 
@@ -25,6 +27,11 @@ h1 {
 
 h2 {
 	font-size: 1.5em;
+	color: $ruby;
+}
+
+h3 {
+	font-size: 1.2em;
 }
 
 strong {
@@ -49,6 +56,9 @@ blockquote {
 
 header {
 	border-top: .2em solid $ruby;
+	a, a:visited {
+		color: $gray;
+	}
 	nav li {
 		display: inline-block;
 	}
