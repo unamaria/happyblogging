@@ -13,7 +13,6 @@ class FlickrContentService
 	end
 
 	def flickrID(username)
-		prepare_request
 		method = 'flickr.people.findByUsername'
 		url = "#{@api_path}method=#{method}&api_key=#{@api_key}&username=#{username}&format=#{@format}&nojsoncallback=1"
 

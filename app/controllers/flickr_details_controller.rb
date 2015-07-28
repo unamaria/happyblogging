@@ -36,7 +36,7 @@ class FlickrDetailsController < ApplicationController
 		@user = User.find_by_handle(params[:user_id])
 	end
 
-	def load_flickr_content_service(service = RegistrationService.new)
+	def load_flickr_content_service(service = FlickrContentService.new)
     @flickr_content_service ||= service
-  end
+ 	end
 end
