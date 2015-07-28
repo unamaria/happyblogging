@@ -23,14 +23,14 @@ gem 'turbolinks'
 # bundle exec rake doc:rails generates the API under doc/api.
 # gem 'sdoc', '~> 0.4.0', group: :doc
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
 # Use Devise for authentication
 gem 'devise', '3.5.1'
 
 # Use Heroku to deploy
 gem 'rails_12factor', group: :production
+
+# Use Faraday for HTTP requests
+gem 'faraday', '~> 0.9.1'
 
 group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
