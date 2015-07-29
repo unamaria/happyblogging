@@ -1,5 +1,5 @@
 class FlickrDetailsController < ApplicationController
-	before_filter :find_user, only: [:update, :create]
+	before_filter :find_user, only: [:edit, :update, :create]
 	before_filter :load_flickr_content_service, only: [:update, :create]
 
 	def new
@@ -15,11 +15,12 @@ class FlickrDetailsController < ApplicationController
 	end
 
 	def edit
-		@flickr_detail = FlickrDetail.new
+		@flickr_detail = @user.flickr_detail
 	end
 
 	def update
-		flickr_detail = @user.flickr_detail.find(params[:id])
+		flickrID = @flickr_content_service.flickrID(params[:username])
+		flickr_detail = @user.flickr_detail
 		flickr_detail.update(flickr_detail_params.merge(
 			{nsid: flickrID}))
 
