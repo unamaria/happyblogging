@@ -45,7 +45,10 @@ class FlickrContentService
 				title: photo_info['title']['_content'],
 				photo_id: photo_id,
 				description: (photo_info['description']['_content']).squish,
-				posted_at: Time.at(photo_info['dates']['posted'].to_i)
+				posted_at: Time.at(photo_info['dates']['posted'].to_i),
+				farm: photo_info['farm'],
+				server: photo_info['server'],
+				secret: photo_info['secret']
 				)
 			flickr_item.blog_item = BlogItem.create(user_id: user.id, item_type: 'FlickrItem')
 		end

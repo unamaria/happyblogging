@@ -6,7 +6,7 @@ class FlickrItem < ActiveRecord::Base
 		"https://www.flickr.com/photos/#{nsid}/#{photo_id}"
 	end
 
-	def direct_url(farm_id, server_id, photo_id, secret)
-		"https://farm#{farm_id}.staticflickr.com/#{server_id}/#{photo_id}_#{secret}_z.jpg"
+	def direct_url(farm, server, photo_id, secret)
+		"https://farm#{farm}.staticflickr.com/#{server}/#{photo_id}_#{secret}_z.jpg"
 	end
 end
