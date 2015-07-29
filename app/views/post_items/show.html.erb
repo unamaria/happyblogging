@@ -1,6 +1,6 @@
 <h2><%= @post.title %></h2>
 <article><%= simple_format(@post.body) %></article>
 
-<% if current_user && current_user.id == post_item.blog_item.user_id %>
+<% if current_user && current_user.id == @post.blog_item.user_id %>
 	<p><%= link_to 'Edit', edit_user_post_item_path(current_user, @post) %></p>
 <% end %>
