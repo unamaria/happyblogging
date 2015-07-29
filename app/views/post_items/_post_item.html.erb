@@ -1,2 +1,4 @@
 <h2><%= post_item.title %></h2>
-<p><%= post_item.body %></p>
+<article>
+<%= simple_format(post_item.body) %>
+</article>
