@@ -7,7 +7,7 @@ class FlickrDetailsController < ApplicationController
 	end
 
 	def create
-		flickrID = @flickr_content_service.flickrID(params[:username])
+		flickrID = @flickr_content_service.flickrID(params['flickr_detail']['username'])
 		FlickrDetail.create(flickr_detail_params.merge(
 			{nsid: flickrID, user_id: @user.id}))
 
