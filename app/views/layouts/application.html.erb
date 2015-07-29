@@ -20,7 +20,13 @@
 				<li><%= link_to 'Sign in', user_session_path %></li>
 			<% end %>
 		</ul>
-		<a href="<%= root_path %>"><img class="logo" src=<%= image_path("logo.png") %> alt="Happy blogging logo"></a>
+		<% if current_user %>
+			<a href="<%= user_index_path(current_user.handle) %>">
+		<% else %>	
+			<a href="<%= root_path %>">
+		<% end %>	
+			<img class="logo" src=<%= image_path("logo.png") %> alt="Happy blogging logo">
+		</a>
 	</nav>
 </header>
 <p class="notice"><%= notice %></p>
