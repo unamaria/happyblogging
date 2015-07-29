@@ -13,6 +13,13 @@ img {
 	max-width: 100%;
 }
 
+a {
+	text-decoration: none;
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
 main {
   max-width: 40em;
 	margin: 0 auto;
@@ -27,6 +34,9 @@ h1, h2, h3, h4, h5, h6 {
 	font-family: $sans;
 	font-weight: bold;
 	padding: 1em 0;
+	a {
+		color: inherit;
+	}
 }
 
 h1 {
