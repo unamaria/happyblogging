@@ -1,4 +1,11 @@
 <% @posts.each do |post| %>
-	<h2><%= post.title %></h2>
-	<p><%= post.body %></p>
+	<h2><%= link_to post.title, user_post_item_path(params[:user_id], post) %></h2>
+
+	<article>
+	<%= simple_format(truncate(post.body, length: 350, separator: ' ')) %>
+	</article>
+
+	<% if current_user && current_user.id == post.blog_item.user_id %>
+	<p><%= link_to 'Edit', edit_user_post_item_path(current_user, post) %></p>
+	<% end %>
 <% end %>

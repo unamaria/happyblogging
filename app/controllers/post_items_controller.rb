@@ -4,8 +4,7 @@ class PostItemsController < ApplicationController
 	before_action :authenticate_user!, except: [:show, :index]
 
 	def index
-		# postitems don't have author (blog items do)
-		# @posts = PostItem.joins(:author).where(users: {handle: params[:handle]})
+		@posts = current_user.post_items.order(created_at: :desc) # when link in index blog items won't work
 	end
 
 	def new
