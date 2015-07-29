@@ -1,4 +1,9 @@
 <h2><%= post_item.title %></h2>
+
 <article>
 <%= simple_format(post_item.body) %>
 </article>
+
+<% if current_user && current_user.id == post_item.blog_item.user_id %>
+<p><%= link_to 'Edit', edit_user_post_item_path(current_user, post_item) %></p>
+<% end %>

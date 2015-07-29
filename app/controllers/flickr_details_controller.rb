@@ -1,6 +1,6 @@
 class FlickrDetailsController < ApplicationController
-	before_filter :find_user, only: [:edit, :update, :create]
-	before_filter :load_flickr_content_service, only: [:update, :create]
+	before_action :find_user, only: [:edit, :update, :create]
+	before_action :load_flickr_content_service, only: [:update, :create]
 
 	def new
 		@flickr_detail = FlickrDetail.new
