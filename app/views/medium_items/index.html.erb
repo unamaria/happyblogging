@@ -1,0 +1,13 @@
+<% @mediums.each do |medium| %>
+	<h2><%= link_to medium.title, user_medium_item_path(params[:user_id], medium) %></h2>
+
+	<p class="meta">Posted <%= time_ago_in_words(medium.created_at) %> ago</p>
+
+	<article>
+		<%= simple_format(truncate(medium.body, length: 350, separator: ' ')) %>
+	</article>
+
+	<% if current_user && current_user.id == medium.blog_item.user_id %>
+	<p><%= link_to 'Edit', edit_user_medium_item_path(current_user, medium) %></p>
+	<% end %>
+<% end %>

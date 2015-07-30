@@ -1,0 +1,9 @@
+<h2>Medium username</h2>
+<p>Add your Medium's username to import your awesome posts from Medium!</p>
+<%= form_for @medium_detail, url: {action: "create"} do |f| %>
+
+	<%= f.label :username %><br />
+	<%= f.text_field :username %><br />
+
+  <%= f.submit "Save", class: 'button' %>
+<% end %>

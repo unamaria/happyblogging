@@ -33,7 +33,7 @@ gem 'rails_12factor', group: :production
 gem 'faraday', '~> 0.9.1'
 
 # Use Medium Scrapper to get posts from medium
-gem 'medium-scrapper', '~> 0.0.4'
+gem 'medium-scrapper', '~> 0.0.5'
 
 group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring

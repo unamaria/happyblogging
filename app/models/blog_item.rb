@@ -7,6 +7,8 @@ class BlogItem < ActiveRecord::Base
 			PostItem.find(item_id)
 		elsif item_type == 'FlickrItem'
 			FlickrItem.find(item_id)
+		elsif item_type == 'MediumItem'
+			MediumItem.find(item_id)	
 		end
 	end
 end

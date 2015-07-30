@@ -14,9 +14,15 @@
 <h3>Your account settings</h3>
 
 <% if @user.flickr_detail %>
-	<%= link_to 'Update my Flickr username', edit_user_flickr_detail_path(@user.handle, @user.flickr_detail) %>
+	<p><%= link_to 'Update my Flickr username', edit_user_flickr_detail_path(@user.handle, @user.flickr_detail) %></p>
 <% else %>
-	<%= link_to 'Import photos from my Flickr account', new_user_flickr_detail_path(@user.handle) %>
+	<p><%= link_to 'Import photos from my Flickr account', new_user_flickr_detail_path(@user.handle) %></p>
 <% end %>
 
-<%= link_to "Back", :back %>
+<% if @user.medium_detail %>
+	<p><%= link_to 'Update my Medium username', edit_user_medium_detail_path(@user.handle, @user.medium_detail) %></p>
+<% else %>
+	<p><%= link_to 'Import photos from my Medium account', new_user_medium_detail_path(@user.handle) %></p>
+<% end %>
+
+<p><%= link_to "Back", :back %></p>
