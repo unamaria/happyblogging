@@ -1,4 +1,7 @@
 <h2><%= @post.title %></h2>
+
+<p class="meta">posted <%= time_ago_in_words(@post.created_at) %> ago</p>
+
 <article><%= simple_format(@post.body) %></article>
 
 <% if current_user && current_user.id == @post.blog_item.user_id %>

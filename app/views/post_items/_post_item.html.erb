@@ -1,5 +1,7 @@
 <h2><%= link_to post_item.title, user_post_item_path(params[:handle], post_item) %></h2>
 
+<p class="meta">posted <%= time_ago_in_words(post_item.created_at) %> ago</p>
+
 <article>
 
 <%= simple_format(truncate(post_item.body, length: 350, separator: ' ')) %>
