@@ -1,0 +1,3 @@
+class MediumDetailsController < ApplicationController
+
+end
