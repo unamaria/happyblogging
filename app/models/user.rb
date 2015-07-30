@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   has_one :flickr_detail, dependent: :destroy
   has_many :post_items, through: :blog_items, source: :item, source_type: "PostItem"
   has_many :flickr_items, through: :blog_items, source: :item, source_type: "FlickrItem"
+  has_many :medium_items, through: :blog_items, source: :item, source_type: "MediumItem"
  
   validates :handle, presence: true, uniqueness: true
 end
