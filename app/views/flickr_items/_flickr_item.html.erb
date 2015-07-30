@@ -7,4 +7,8 @@
 </a>
 <script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
 
-<p><%= flickr_item.description %></p>
+<p><%= simple_format(flickr_item.description) %></p>
+
+<% if current_user && current_user.id == flickr_item.blog_item.user_id %>
+<p><%= link_to 'Edit', edit_user_flickr_item_path(current_user, flickr_item) %></p>
+<% end %>

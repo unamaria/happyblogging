@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [] do
   	resources :post_items
+  	resources :flickr_items
   	resources :flickr_details, except: [:index, :show]
   end
 end
