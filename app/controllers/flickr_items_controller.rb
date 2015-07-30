@@ -4,7 +4,7 @@ class FlickrItemsController < ApplicationController
 	before_action :authenticate_user!, except: [:show, :index]
 
 	def index
-		@photos = current_user.post_items.order(created_at: :desc) # when link in index blog items won't work
+		@photos = current_user.flickr_items.order(created_at: :desc) # when link in index blog items won't work
 	end
 
 	def edit

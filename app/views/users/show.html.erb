@@ -9,7 +9,13 @@
 <%= link_to 'Edit profile', edit_user_registration_path %>
 
 <h3>Content</h3>
-<%= link_to 'My posts', user_post_items_path(@user.handle) %>
+<p><%= link_to 'My posts', user_post_items_path(@user.handle) %></p>
+<% if @user.flickr_detail %>
+<p><%= link_to 'Photos from Flickr', user_flickr_items_path(@user.handle) %></p>
+<% end %>
+<% if @user.medium_detail %>
+<p><%= link_to 'Posts from Medium', user_medium_items_path(@user.handle) %></p>
+<% end %>
 
 <h3>Your account settings</h3>
 
