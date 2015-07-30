@@ -2,7 +2,7 @@
 
 <p class="meta">taken <%= time_ago_in_words(flickr_item.posted_at) %> ago</p>
 
-<a data-flickr-embed="true" href="<%= flickr_item.flickr_url(FlickrDetail.find_by_user_id(flickr_item.blog_item.user_id).nsid, flickr_item.photo_id) %>">
+<a data-flickr-embed="true" href="<%= flickr_item.flickr_url(flickr_item.owner_nsid, flickr_item.photo_id) %>">
 	<img src="<%= flickr_item.direct_url(flickr_item.farm, flickr_item.server, flickr_item.photo_id, flickr_item.secret) %>" alt=<%= flickr_item.title %>>
 </a>
 <script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>

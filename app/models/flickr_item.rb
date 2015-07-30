@@ -9,4 +9,8 @@ class FlickrItem < ActiveRecord::Base
 	def direct_url(farm, server, photo_id, secret)
 		"https://farm#{farm}.staticflickr.com/#{server}/#{photo_id}_#{secret}_z.jpg"
 	end
+
+	def owner_nsid
+		FlickrDetail.find_by_user_id(self.blog_item.user_id).nsid
+	end
 end
