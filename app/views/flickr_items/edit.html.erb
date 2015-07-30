@@ -5,5 +5,7 @@
 	<%= f.text_field :title, placeholder: @photo.title %><br />
 	<%= f.label :description %><br />
   <%= f.text_area :description, placeholder: simple_format(@photo.description) %><br />
-  <%= f.submit "Update photo", class: 'button' %>
+  <%= f.submit "Update photo", class: 'button button-primary' %>
 <% end %>
+
+<%= link_to 'Delete', user_flickr_item_path, method: :delete, data: { confirm: "Are you sure?" } %>

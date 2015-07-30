@@ -18,6 +18,12 @@ class FlickrItemsController < ApplicationController
 	def show
 	end
 
+	def destroy
+		photo = FlickrItem.find(params[:id])
+		FlickrItem.destroy(photo)
+		redirect_to root_path #photo.blog_item = nil, ?
+	end
+
 	private
 
 	def find_photo
@@ -26,9 +32,5 @@ class FlickrItemsController < ApplicationController
 
 	def photo_item_params
 		params.require(:flickr_item).permit(:title, :description)
-	end
-
-	def create_blog_item(user, photo)
-		BlogItem.create!(user_id: user.id, item_id: photo.id, item_type: 'FlickrItem')
 	end
 end

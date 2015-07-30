@@ -33,6 +33,12 @@ class PostItemsController < ApplicationController
 	def show
 	end
 
+	def destroy
+		post = PostItem.find(params[:id])
+		PostItem.destroy(post)
+		redirect_to root_path #post.blog_item = nil, ?
+	end
+
 	private
 
 	def find_post

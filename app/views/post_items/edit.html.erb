@@ -5,5 +5,7 @@
 	<%= f.text_field :title, placeholder: @post.title %><br />
 	<%= f.label :body %><br />
   <%= f.text_area :body, placeholder: simple_format(@post.body) %><br />
-  <%= f.submit "Update post", class: 'button' %>
+  <%= f.submit "Update post", class: 'button button-primary' %>
 <% end %>
+
+<%= link_to 'Delete', user_post_item_path, method: :delete, data: { confirm: "Are you sure?" } %>
