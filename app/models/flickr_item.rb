@@ -13,4 +13,9 @@ class FlickrItem < ActiveRecord::Base
 	def owner_nsid
 		FlickrDetail.find_by_user_id(self.blog_item.user_id).nsid
 	end
+
+	def author
+		# TODO: Fix SQL performance
+		blog_item.author
+	end
 end

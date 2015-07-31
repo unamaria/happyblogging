@@ -1,0 +1,9 @@
+<h2>Medium username</h2>
+<p>Did you change your username in Medium? No problem!</p>
+<%= form_for @medium_detail, method: 'put', url: {action: "update"} do |f| %>
+
+	<%= f.label :username %><br />
+	<%= f.text_field :username, placeholder: @username %><br />
+
+  <%= f.submit "Update", class: 'button' %>
+<% end %>
