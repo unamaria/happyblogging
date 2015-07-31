@@ -1,6 +1,6 @@
 <h2><%= @medium.title %></h2>
 
-<p class="meta">Posted <%= time_ago_in_words(@medium.created_at) %> ago</p>
+<p class="meta">posted <%= time_ago_in_words(@medium.created_at) %> ago</p>
 
 <article>
 	<%= simple_format(@medium.body) %>
