@@ -28,7 +28,7 @@
 <% if @user.medium_detail %>
 	<p><%= link_to 'Update my Medium username', edit_user_medium_detail_path(@user.handle, @user.medium_detail) %></p>
 <% else %>
-	<p><%= link_to 'Import photos from my Medium account', new_user_medium_detail_path(@user.handle) %></p>
+	<p><%= link_to 'Import posts from my Medium account', new_user_medium_detail_path(@user.handle) %></p>
 <% end %>
 
 <p><%= link_to "Back", :back %></p>

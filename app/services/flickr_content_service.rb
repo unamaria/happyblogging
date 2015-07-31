@@ -37,7 +37,7 @@ class FlickrContentService
 		JSON.parse(response.body)
 	end
 
-	def create_flickr_items(user)
+	def items(user)
 		photo_ids = get_photos(user.flickr_detail.nsid)
 		items = photo_ids.map do |photo_id|
 			photo_info = get_photo_info(photo_id)['photo']
@@ -51,6 +51,6 @@ class FlickrContentService
 				secret: photo_info['secret']
 			}
 		end
-		FlickrItem.process_from_api(items)
+		FlickrItem.process_from_api(user, items)
 	end
 end
