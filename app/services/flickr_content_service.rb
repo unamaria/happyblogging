@@ -39,9 +39,9 @@ class FlickrContentService
 
 	def create_flickr_items(user)
 		photo_ids = get_photos(user.flickr_detail.nsid)
-		photo_ids.each do |photo_id|
+		items = photo_ids.map do |photo_id|
 			photo_info = get_photo_info(photo_id)['photo']
-			flickr_item = FlickrItem.create(
+			{
 				title: photo_info['title']['_content'],
 				photo_id: photo_id,
 				description: (photo_info['description']['_content']).squish,
@@ -49,8 +49,8 @@ class FlickrContentService
 				farm: photo_info['farm'],
 				server: photo_info['server'],
 				secret: photo_info['secret']
-				)
-			flickr_item.blog_item = BlogItem.create(user_id: user.id, item_type: 'FlickrItem')
+			}
 		end
+		FlickrItem.process_from_api(items)
 	end
 end
