@@ -1,13 +1,8 @@
-$ruby: #B70F23;
-$gray: #8A8A8A;
-$light_gray: #CDCDCD;
-$serif: 'Lora' Times, Baskerville, Georgia, serif;
-
 input, textarea {
 	padding: .5em;
   margin: 1em 0;
 	font-size: 100%;
-	border: 1px solid $light-gray;
+	border: 1px solid $subtle_color;
 }
 
 input[type=text], textarea {
@@ -21,11 +16,11 @@ textarea {
 
 .button {
 	border: none;
-	background-color: $gray;
+	background-color: $secondary_color;
   color: #FFF;
   cursor: pointer;
 }
 
 .button-primary {
-  background-color: $ruby;
+  background-color: $main_color;
 }

@@ -1,0 +1,35 @@
+body {
+	font-family: $sans;
+	background:
+		radial-gradient(black 15%, transparent 16%) 0 0,
+		radial-gradient(black 15%, transparent 16%) 8px 8px,
+		radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
+		radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
+		background-color:#282828;
+		background-size:16px 16px;
+		color: white;
+}
+
+h1, h2, h3 {
+	font-family: $serif;
+	color: $main_color;
+}
+
+blockquote {
+	border-left: .5em solid $subtle_color;
+} 
+
+header {
+	border-top: .2em solid $main_color;
+	a, a:visited {
+		color: $secondary_color;
+	}
+}
+
+.user-nav li {
+	font-family: $sans;
+}
+
+.meta {
+	color: $subtle_color;
+}

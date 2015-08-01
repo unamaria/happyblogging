@@ -1,9 +1,3 @@
-$ruby: #B70F23;
-$light_gray: #CDCDCD;
-$gray: #8A8A8A;
-$serif: 'Lora' Times, Baskerville, Georgia, serif;
-$sans: 'Ubuntu', Arial, "Helvetica Neue", Helvetica, sans-serif;
-
 body {
 	font-family: $serif;
 	font-size: 100%;
@@ -41,12 +35,12 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
 	font-size: 2em;
-	color: $ruby;
+	color: $main_color;
 }
 
 h2 {
 	font-size: 1.5em;
-	color: $ruby;
+	color: $main_color;
 }
 
 h3 {
@@ -58,7 +52,7 @@ strong {
 }
 
 blockquote {
-	border-left: .5em solid $light_gray;
+	border-left: .5em solid $subtle_color;
   padding-left: 1em;
 	p {
 		font-style: italic;
@@ -78,9 +72,9 @@ article p {
 }
 
 header {
-	border-top: .2em solid $ruby;
+	border-top: .2em solid $main_color;
 	a, a:visited {
-		color: $gray;
+		color: $secondary_color;
 	}
 	nav li {
 		display: inline-block;
@@ -109,6 +103,6 @@ header {
 }
 
 .meta {
-	color: $light-gray;
+	color: $subtle_color;
 	font-style: italic;
 }
