@@ -36,7 +36,7 @@ gem 'faraday', '~> 0.9.1'
 gem 'medium-scrapper', '~> 0.0.5'
 
 # Use Figaro for environment variables
-gem "figaro"
+gem 'figaro', '~> 1.1.1'
 
 group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring

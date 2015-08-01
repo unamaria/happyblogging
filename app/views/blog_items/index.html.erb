@@ -1,4 +1,4 @@
-<% if @blogitems %>
+<% unless @blogitems.blank? %>
 	<% @blogitems.each do |blogitem| %>
 		<%= render partial: blogitem.item %>
 	<% end %>

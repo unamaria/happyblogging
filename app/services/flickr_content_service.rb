@@ -1,5 +1,16 @@
 class FlickrContentService
-
+	def self.connection
+		@@api_key = ENV['flickr_api_key']
+		@@root = 'https://api.flickr.com'
+		@@api_path = '/services/rest/?'
+		@@format = 'json'
+		@@conn = Faraday.new(:url => @@root) do |faraday|
+		  faraday.request  :url_encoded             # form-encode POST params
+		  faraday.response :logger                  # log requests to STDOUT
+		  faraday.adapter  Faraday.default_adapter  # make requests with Net::HTTP
+		end
+	end
+	
 	def self.items(user)
 		connection
 		photo_ids = get_photos(user.flickr_detail.nsid)
@@ -16,18 +27,6 @@ class FlickrContentService
 			}
 		end
 		FlickrItem.process_from_api(user, items)
-	end
-
-	def self.connection
-		@@api_key = ENV["flickr_api_key"]
-		@@root = 'https://api.flickr.com'
-		@@api_path = '/services/rest/?'
-		@@format = 'json'
-		@@conn = Faraday.new(:url => @@root) do |faraday|
-		  faraday.request  :url_encoded             # form-encode POST params
-		  faraday.response :logger                  # log requests to STDOUT
-		  faraday.adapter  Faraday.default_adapter  # make requests with Net::HTTP
-		end
 	end
 
 	def self.flickrID(username)

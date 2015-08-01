@@ -193,7 +193,7 @@ DEPENDENCIES
   devise (= 3.5.1)
   faker (= 1.4.3)
   faraday (~> 0.9.1)
-  figaro
+  figaro (~> 1.1.1)
   jquery-rails
   medium-scrapper (~> 0.0.5)
   pg
