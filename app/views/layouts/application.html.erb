@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<% if current_user && current_user.styles == "notebook" %>
 	<link href='http://fonts.googleapis.com/css?family=Roboto:300,700|Pacifico' rel='stylesheet' type='text/css'>
+	<% else %>
 	<link href='//fonts.googleapis.com/css?family=Lora:400,400italic,700|Ubuntu' rel='stylesheet' type='text/css'>
+	<% end %>
   <title>Happyblogging</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <% if current_user && current_user.styles == "notebook" %>
   <link rel="stylesheet" media="all" href="/assets/notebook/main.css">
+  <% end %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>

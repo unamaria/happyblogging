@@ -6,7 +6,7 @@
 <p><strong>Handle:</strong> <%= @user.handle %></p>
 <p><strong>Email:</strong> <%= @user.email %></p>
 
-<%= link_to 'Edit profile', edit_user_registration_path %>
+<p><%= link_to 'Edit profile', edit_user_registration_path %></p>
 
 <h3>Content</h3>
 <p><%= link_to 'My posts', user_post_items_path(@user.handle) %></p>
@@ -18,6 +18,8 @@
 <% end %>
 
 <h3>Your account settings</h3>
+
+<p><%= link_to 'Choose blog style', user_edit_path(@user.handle) %></p>
 
 <% if @user.flickr_detail %>
 	<p><%= link_to 'Update my Flickr username', edit_user_flickr_detail_path(@user.handle, @user.flickr_detail) %></p>
