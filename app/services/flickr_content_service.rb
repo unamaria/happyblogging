@@ -1,6 +1,6 @@
 class FlickrContentService
 
-	def initialize
+	def connection
 		@api_key = 'b8f714a84f67af6df3b0901e4a3ce803'
 		@root = 'https://api.flickr.com'
 		@api_path = '/services/rest/?'

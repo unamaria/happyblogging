@@ -35,6 +35,9 @@ gem 'faraday', '~> 0.9.1'
 # Use Medium Scrapper to get posts from medium
 gem 'medium-scrapper', '~> 0.0.5'
 
+# Use Figaro for environment variables
+gem "figaro"
+
 group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
