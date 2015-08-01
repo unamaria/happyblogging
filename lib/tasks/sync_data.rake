@@ -7,7 +7,7 @@ namespace :hb do
     			MediumContentService.items(user)
     		end
     		if user.flickr_detail
-    			FlickrContentService.new.items(user)
+    			FlickrContentService.items(user)
     		end
     	end
     end

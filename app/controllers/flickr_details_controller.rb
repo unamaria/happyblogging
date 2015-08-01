@@ -1,13 +1,13 @@
 class FlickrDetailsController < ApplicationController
 	before_action :find_user, only: [:edit, :update, :create]
-	before_action :load_flickr_content_service, only: [:update, :create]
+	# before_action :load_flickr_content_service, only: [:update, :create]
 
 	def new
 		@flickr_detail = FlickrDetail.new
 	end
 
 	def create
-		flickrID = @flickr_content_service.flickrID(params['flickr_detail']['username'])
+		flickrID = FlickrContentService.flickrID(params['flickr_detail']['username'])
 		FlickrDetail.create(flickr_detail_params.merge(
 			{nsid: flickrID, user_id: @user.id}))
 
@@ -19,7 +19,7 @@ class FlickrDetailsController < ApplicationController
 	end
 
 	def update
-		flickrID = @flickr_content_service.flickrID(params[:username])
+		flickrID = FlickrContentService.flickrID(params[:username])
 		flickr_detail = @user.flickr_detail
 		flickr_detail.update(flickr_detail_params.merge(
 			{nsid: flickrID}))
@@ -37,7 +37,7 @@ class FlickrDetailsController < ApplicationController
 		@user = User.find_by_handle(params[:user_id])
 	end
 
-	def load_flickr_content_service(service = FlickrContentService.new)
-    @flickr_content_service ||= service
- 	end
+	# def load_flickr_content_service(service = FlickrContentService.new)
+ #    @flickr_content_service ||= service
+ # 	end
 end
