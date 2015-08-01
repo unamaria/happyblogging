@@ -1,10 +1,10 @@
 class MediumContentService
-	def get_posts(username)
+	def self.get_posts(username)
 		user = MediumScrapper.new.load_user(username)
 		user.posts
 	end
 
-	def items(user)
+	def self.items(user)
 		posts = get_posts(user.medium_detail.username)
 		items = posts.map do |post|
 			{

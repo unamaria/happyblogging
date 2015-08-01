@@ -4,7 +4,7 @@ namespace :hb do
     	users = User.all
     	users.each do |user|
     		if user.medium_detail
-    			MediumContentService.new.items(user)
+    			MediumContentService.items(user)
     		end
     		if user.flickr_detail
     			FlickrContentService.new.items(user)
