@@ -1,6 +1,5 @@
-$background_color: black;
-$main_color: green;
-$secondary_color: yellow;
-$subtle_color: pink;
+$secondary_color: #ABCED4;
+$main_color: darken($secondary_color, 50);
+$subtle_color: adjust_hue($secondary_color, 175);
 $serif: 'Pacifico', Times, Baskerville, Georgia, serif;
 $sans: 'Roboto', Arial, "Helvetica Neue", Helvetica, sans-serif;

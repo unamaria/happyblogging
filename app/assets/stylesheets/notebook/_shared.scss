@@ -1,0 +1,37 @@
+body {
+	font-family: $sans;
+	background-image: 
+	linear-gradient(90deg, transparent 79px, transparent 81px),
+	linear-gradient(#F7F7F7 .1em, transparent .1em);
+	background-size: 100% 1.2em;
+}
+
+main {
+	border-left: .2em solid $secondary_color;
+}
+
+h1, h2, h3 {
+	font-family: $serif;
+	color: $main_color;
+}
+
+blockquote {
+	border-left: none;
+} 
+
+header {
+	border-top: .2em solid $main_color;
+  background-color: #FFF;
+  border-bottom: .2em solid $secondary_color;
+	a, a:visited {
+		color: $main_color;
+	}
+}
+
+.user-nav li {
+	font-family: $sans;
+}
+
+.meta {
+	color: $subtle_color;
+}
