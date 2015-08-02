@@ -14,6 +14,10 @@ textarea {
 	height: 25em;
 }
 
+label {
+	font-style: italic;
+}
+
 .button {
 	border: none;
 	background-color: $secondary_color;
