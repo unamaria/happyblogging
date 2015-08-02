@@ -4,5 +4,7 @@
 	<label for="user_styles_default">Ruby (default)</label><br />
 	<%= radio_button("user", "styles", "notebook") %>
 	<label for="user_styles_notebook">Notebook</label><br />
+	<%= radio_button("user", "styles", "pulp") %>
+	<label for="user_styles_pulp">Pulp</label><br />
 	<%= f.submit "Update styles", class: 'button button-primary' %>
 <% end %>
