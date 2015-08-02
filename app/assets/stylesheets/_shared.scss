@@ -14,6 +14,14 @@ a {
 	}
 }
 
+li {
+	list-style: square inside;
+}
+
+code {
+	font-family: monospace;
+}
+
 main {
   max-width: 40em;
 	margin: 0 auto;
@@ -51,6 +59,10 @@ strong {
 	font-weight: bold;
 }
 
+em {
+	font-style: italic;
+}
+
 blockquote {
 	border-left: .5em solid $subtle_color;
   padding-left: 1em;
@@ -59,8 +71,17 @@ blockquote {
 	}
 } 
 
-article p {
+article {
+	p {
 	font-size: 1.1em;
+	}
+	h1, h2, h3, h4, h5, h6 {
+	font-family: $serif;
+	color: black;
+		a {
+			color: black;
+		}
+	}
 }
 
 .container {

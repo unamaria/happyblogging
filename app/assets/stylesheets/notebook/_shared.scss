@@ -15,6 +15,16 @@ h1, h2, h3 {
 	color: $main_color;
 }
 
+article {
+	h1, h2, h3, h4, h5, h6 {
+	font-family: $sans;
+	color: black;
+		a {
+			color: black;
+		}
+	}
+}
+
 blockquote {
 	border-left: none;
 } 

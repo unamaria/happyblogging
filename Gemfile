@@ -38,6 +38,10 @@ gem 'medium-scrapper', '~> 0.0.5'
 # Use Figaro for environment variables
 gem 'figaro', '~> 1.1.1'
 
+# Use Rdiscount to support markdown
+gem 'rdiscount', '~> 2.1.8'
+
+
 group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
