@@ -17,25 +17,31 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<header class="container">
-	<nav>
-		<ul class="user-nav">
-			<% if current_user %>
-			<li><%= link_to 'Sign out', destroy_user_session_path, method: 'delete' %></li>
-			<li><%= link_to current_user.name, user_path(current_user.handle) %></li>
-			<li><%= link_to 'New post', new_user_post_item_path(current_user.handle) %></li>
-			<% else %>
-				<li><%= link_to 'Sign up', new_user_registration_path %></li>
-				<li><%= link_to 'Sign in', user_session_path %></li>
-			<% end %>
-		</ul>
+<header class="container flex-container">
+	<div>
 		<% if current_user %>
 			<a href="<%= user_index_path(current_user.handle) %>">
 		<% else %>	
 			<a href="<%= root_path %>">
 		<% end %>	
-			<img class="logo" src=<%= image_path("logo.png") %> alt="Happy blogging logo">
-		</a>
+				<img class="logo" src=<%= image_path("logo.png") %> alt="Happy blogging logo">
+			</a>
+			<ul class="user-nav align-top">
+				<% if current_user %>
+					<li><%= link_to 'My site', user_index_path(current_user.handle) %></li>
+			</ul>
+	</div>
+	<nav>
+	<div class="flex-container">
+		<ul class="user-nav">
+			<li><%= link_to 'New post', new_user_post_item_path(current_user.handle) %></li>
+			<li><%= link_to current_user.name, user_path(current_user.handle) %></li>
+			<% else %>
+				<li><%= link_to 'Sign up', new_user_registration_path %></li>
+				<li><%= link_to 'Sign in', user_session_path %></li>
+			<% end %>
+		</ul>
+	</div>
 	</nav>
 </header>
 
