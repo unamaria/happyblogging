@@ -1,0 +1,15 @@
+.button {
+	background-color: $secondary_color;
+}
+
+.button-primary {
+  background-color: $main_color;
+}
+
+input, textarea {
+	border: 1px solid $subtle_color;
+}
+
+input[type=text], textarea {
+	font-family: 'Libre Baskerville', Times, Baskerville, Georgia, serif;
+}

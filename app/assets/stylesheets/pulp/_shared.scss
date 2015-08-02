@@ -1,0 +1,57 @@
+body {
+	font-family: 'Libre Baskerville', Times, Baskerville, Georgia, serif;
+	background-color: #282828;
+	background-size: 16px 16px;
+	color: white;
+}
+
+h1, h2, h3 {
+	font-family: 'Sigmar One', Arial, "Helvetica Neue", Helvetica, sans-serif;
+	font-weight: normal;
+	color: $main_color;
+	a, a:visited {
+		color: inherit;
+	}
+}
+
+header {
+	background:
+		radial-gradient(black 15%, transparent 16%) 0 0,
+		radial-gradient(black 15%, transparent 16%) 8px 8px,
+		radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
+		radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
+	background-color: #282828;
+	background-size: 16px 16px;
+	border-top: .2em solid $main_color;
+	border-bottom: 4em solid $secondary_color;
+	a, a:visited {
+		color: $main_color;
+	}
+}
+
+a, a:visited {
+	color: $subtle-color;
+}
+
+.user-nav li {
+	font-family: 'Sigmar One', Arial, "Helvetica Neue", Helvetica, sans-serif;
+	font-weight: normal;
+}
+
+.meta {
+	color: $secondary-color;
+}
+
+article {
+	h1, h2, h3, h4, h5, h6 {
+	font-family: $serif;
+	color: black;
+		a {
+			color: black;
+		}
+	}
+}
+
+pre {
+	border: 1px solid $subtle-color;
+}
