@@ -6,6 +6,8 @@
 	<% else %>
 	<link href='//fonts.googleapis.com/css?family=Lora:400,400italic,700|Ubuntu' rel='stylesheet' type='text/css'>
 	<% end %>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Happyblogging</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <% if content_for? :custom_css %>
@@ -13,7 +15,6 @@
   <% end %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <link href="app/assets/stylesheets/turquoise/main.scss" rel="stylesheet" title="turquoise">
 </head>
 <body>
 <header class="container">
