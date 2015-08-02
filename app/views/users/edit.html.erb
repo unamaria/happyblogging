@@ -1,0 +1,8 @@
+<h2>Choose blog style</h2>
+<%= form_for current_user, method: "put" do |f| %>
+	<%= radio_button("user", "styles", "default") %>
+	<label for="user_styles_default">Ruby (default)</label><br />
+	<%= radio_button("user", "styles", "notebook") %>
+	<label for="user_styles_notebook">Notebook</label><br />
+	<%= f.submit "Update styles", class: 'button button-primary' %>
+<% end %>
