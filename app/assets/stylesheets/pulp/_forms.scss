@@ -1,5 +1,6 @@
 .button {
 	background-color: $secondary_color;
+	font-family: $serif;
 }
 
 .button-primary {
@@ -11,5 +12,5 @@ input, textarea {
 }
 
 input[type=text], textarea {
-	font-family: 'Libre Baskerville', Times, Baskerville, Georgia, serif;
+	font-family: $serif;
 }

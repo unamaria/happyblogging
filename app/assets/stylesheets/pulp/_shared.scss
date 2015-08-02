@@ -1,12 +1,12 @@
 body {
-	font-family: 'Libre Baskerville', Times, Baskerville, Georgia, serif;
+	font-family: $serif;
 	background-color: #282828;
 	background-size: 16px 16px;
 	color: white;
 }
 
 h1, h2, h3 {
-	font-family: 'Sigmar One', Arial, "Helvetica Neue", Helvetica, sans-serif;
+	font-family: $sans;
 	font-weight: normal;
 	color: $main_color;
 	a, a:visited {
@@ -34,7 +34,7 @@ a, a:visited {
 }
 
 .user-nav li {
-	font-family: 'Sigmar One', Arial, "Helvetica Neue", Helvetica, sans-serif;
+	font-family: $sans;
 	font-weight: normal;
 }
 
