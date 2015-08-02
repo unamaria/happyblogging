@@ -4,7 +4,7 @@
 
 <article>
 
-<%= simple_format(truncate(post_item.body, length: 350, separator: ' ')) %>
+<%= md truncate(post_item.body, length: 350, separator: ' ') %>
 </article>
 
 <% if current_user && current_user.id == post_item.blog_item.user_id %>
