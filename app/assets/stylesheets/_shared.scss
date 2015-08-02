@@ -127,3 +127,9 @@ header {
 	color: $subtle_color;
 	font-style: italic;
 }
+
+pre {
+	border: 1px solid $subtle-color;
+  border-radius: .5em;
+  padding: .5em;
+}
