@@ -99,6 +99,18 @@ article {
 	vertical-align: top;
 }
 
+.button-link {
+	background-color: $secondary_color;
+  color: #FFF;
+  margin: 1em 0;
+  padding: .5em;
+  font-family: $sans;
+}
+
+.button-link-primary {
+	background-color: $main_color;
+}
+
 // flexbox
 .flex-container {
 	display: flex;

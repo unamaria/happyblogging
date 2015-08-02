@@ -6,10 +6,10 @@
 <p><strong>Blog name:</strong> <%= @user.handle %></p>
 <p><strong>Email:</strong> <%= @user.email %></p>
 
-<p><%= link_to 'Edit profile', edit_user_registration_path %></p>
+<p><%= link_to 'Edit profile', edit_user_registration_path, class: "button-link" %></p>
 
 <h3>Content</h3>
-<p><%= link_to 'My posts', user_post_items_path(@user.handle) %></p>
+<p><%= link_to 'Happy posts', user_post_items_path(@user.handle) %></p>
 <% if @user.flickr_detail %>
 <p><%= link_to 'Photos from Flickr', user_flickr_items_path(@user.handle) %></p>
 <% end %>
@@ -33,5 +33,5 @@
 	<p><%= link_to 'Import posts from my Medium account', new_user_medium_detail_path(@user.handle) %></p>
 <% end %>
 
-<p><%= link_to 'Sign out', destroy_user_session_path, method: 'delete' %></p>
+<p><%= link_to 'Sign out', destroy_user_session_path, method: 'delete', class: "button-link button-link-primary" %></p>
 <p><%= link_to "Back", :back %></p>
