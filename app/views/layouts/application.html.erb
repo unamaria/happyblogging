@@ -4,7 +4,7 @@
 	<% if content_for? :custom_fonts %>
     <%= yield :custom_fonts %>
 	<% else %>
-	<link href='//fonts.googleapis.com/css?family=Lora:400,400italic,700|Ubuntu' rel='stylesheet' type='text/css'>
+		<link href='//fonts.googleapis.com/css?family=Lora:400,400italic,700|Ubuntu' rel='stylesheet' type='text/css'>
 	<% end %>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
@@ -28,17 +28,17 @@
 			</a>
 			<ul class="user-nav align-top">
 				<% if current_user %>
-					<li><%= link_to 'My site', user_index_path(current_user.handle) %></li>
+					<li><%= link_to 'My site', user_index_path(current_user.handle), data: { no_turbolink: true } %></li>
 			</ul>
 	</div>
 	<nav>
 	<div>
 		<ul class="user-nav">
-			<li><%= link_to 'New post', new_user_post_item_path(current_user.handle) %></li>
-			<li><%= link_to current_user.name, user_path(current_user.handle) %></li>
+			<li><%= link_to 'New post', new_user_post_item_path(current_user.handle), data: { no_turbolink: true } %></li>
+			<li><%= link_to current_user.name, user_path(current_user.handle), data: { no_turbolink: true } %></li>
 			<% else %>
-				<li><%= link_to 'Sign up', new_user_registration_path %></li>
-				<li><%= link_to 'Sign in', user_session_path %></li>
+				<li><%= link_to 'Sign up', new_user_registration_path, data: { no_turbolink: true } %></li>
+				<li><%= link_to 'Sign in', user_session_path, data: { no_turbolink: true } %></li>
 			<% end %>
 		</ul>
 	</div>

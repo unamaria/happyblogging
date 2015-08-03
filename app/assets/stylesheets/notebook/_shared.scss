@@ -38,6 +38,10 @@ header {
 	}
 }
 
+pre {
+	border: 1px solid $subtle-color;
+}
+
 .user-nav li {
 	font-family: $sans;
 }
@@ -54,6 +58,7 @@ header {
 	background-color: $main_color;
 }
 
-pre {
-	border: 1px solid $subtle-color;
+a.action-link {
+	color: $link_color;
+	font-family: $sans;
 }

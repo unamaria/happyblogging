@@ -29,6 +29,20 @@ header {
 	}
 }
 
+article {
+	h1, h2, h3, h4, h5, h6 {
+	font-family: $serif;
+	color: white;
+		a {
+			color: white;
+		}
+	}
+}
+
+pre {
+	border: 1px solid $secondary-color;
+}
+
 a, a:visited {
 	color: $subtle-color;
 }
@@ -51,16 +65,7 @@ a, a:visited {
 	background-color: $main_color;
 }
 
-article {
-	h1, h2, h3, h4, h5, h6 {
+a.action-link {
+	color: $link_color;
 	font-family: $serif;
-	color: white;
-		a {
-			color: white;
-		}
-	}
-}
-
-pre {
-	border: 1px solid $secondary-color;
 }
