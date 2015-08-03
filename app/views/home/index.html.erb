@@ -11,3 +11,10 @@
 		<cite><a href="https://www.youtube.com/watch?v=oEkJvvGEtB4" target="_blank">Yukihiro Matsumoto</a></cite>
 	</footer>
 </blockquote>
+
+<h2>Popular blogs</h2>
+<ul>
+	<% @blogs.each do |blog| %>
+		<li><%= link_to blog.handle, user_index_path(blog.handle), data: { no_turbolink: true } %></li>
+	<% end %>
+</ul>

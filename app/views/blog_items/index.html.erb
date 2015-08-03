@@ -13,6 +13,7 @@
 	<% end %>
 <% end %>
 
+<h1><%= @blog_user.handle %></h1>
 <% unless @blogitems.blank? %>
 	<% @blogitems.each do |blogitem| %>
 		<%= render partial: blogitem.item %>
