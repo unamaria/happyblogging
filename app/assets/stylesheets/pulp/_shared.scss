@@ -42,6 +42,15 @@ a, a:visited {
 	color: $secondary-color;
 }
 
+.button-link {
+	background-color: $secondary_color;
+  font-family: $serif;
+}
+
+.button-link-primary {
+	background-color: $main_color;
+}
+
 article {
 	h1, h2, h3, h4, h5, h6 {
 	font-family: $serif;

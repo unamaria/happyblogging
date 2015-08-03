@@ -46,6 +46,14 @@ header {
 	color: $subtle_color;
 }
 
+.button-link {
+	background-color: $secondary_color;
+}
+
+.button-link-primary {
+	background-color: $main_color;
+}
+
 pre {
 	border: 1px solid $subtle-color;
 }
