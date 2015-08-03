@@ -20,9 +20,9 @@
 <header class="container flex-container">
 	<div>
 		<% if current_user %>
-			<a href="<%= user_index_path(current_user.handle) %>">
+			<a data-no-turbolink="true" href="<%= user_index_path(current_user.handle) %>">
 		<% else %>	
-			<a href="<%= root_path %>">
+			<a data-no-turbolink="true" href="<%= root_path %>">
 		<% end %>	
 				<img class="logo" src=<%= image_path("logo.png") %> alt="Happy blogging logo">
 			</a>
