@@ -10,5 +10,5 @@
 <p><%= simple_format(flickr_item.description) %></p>
 
 <% if current_user && current_user.id == flickr_item.blog_item.user_id %>
-<p><%= link_to 'Edit', edit_user_flickr_item_path(current_user, flickr_item) %></p>
+<p><%= link_to 'Edit', edit_user_flickr_item_path(current_user, flickr_item), class: "action-link" %></p>
 <% end %>

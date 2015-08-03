@@ -1,40 +1,59 @@
 <h2><%= @user.name %></h2>
 
-<h3>Your profile</h3>
+<section>
+	<h3>Your profile</h3>
+	<p><strong>Full name:</strong> <%= @user.name %></p>
+	<p><strong>Blog name:</strong> <%= @user.handle %></p>
+	<p><strong>Email:</strong> <%= @user.email %></p>
+	<p><%= link_to 'Edit', edit_user_registration_path, class: "action-link" %></p>
+</section>
 
-<p><strong>Full name:</strong> <%= @user.name %></p>
-<p><strong>Blog name:</strong> <%= @user.handle %></p>
-<p><strong>Email:</strong> <%= @user.email %></p>
-
-<p><%= link_to 'Edit profile', edit_user_registration_path, class: "button-link" %></p>
-
+<section>
 <h3>Your content</h3>
-<ul>
-	<li><%= link_to 'Posts', user_post_items_path(@user.handle) %></li>
-	<% if @user.medium_detail %>
-	<li><%= link_to 'Posts from Medium', user_medium_items_path(@user.handle) %></li>
-	<% end %>
-	<% if @user.flickr_detail %>
-	<li><%= link_to 'Photos from Flickr', user_flickr_items_path(@user.handle) %></li>
-	<% end %>
-</ul>
+	<ul>
+		<li><%= link_to 'Posts', user_post_items_path(@user.handle), class: "content-link" %></li>
+		<% if @user.medium_detail %>
+		<li><%= link_to 'Posts from Medium', user_medium_items_path(@user.handle), class: "content-link" %></li>
+		<% end %>
+		<% if @user.flickr_detail %>
+		<li><%= link_to 'Photos from Flickr', user_flickr_items_path(@user.handle), class: "content-link" %></li>
+		<% end %>
+	</ul>
+</section>
 
-<h3>Your account settings</h3>
-<h4>Blog style</h4>
-<p><strong>Current style:</strong> <%= @user.styles %></p> 
-<p><%= link_to 'Change style', user_edit_path(@user.handle), class: "button-link" %></p>
+<section>	
+	<h3>Modules</h3>
+	<table>
+		<tr>
+			<th>Flickr</th>
+			<td><%= @user.flickr_detail ? @user.flickr_detail.username : "OFF" %></td>
+			<td>
+				<% if @user.flickr_detail %>
+					<%= link_to 'Update', edit_user_flickr_detail_path(@user.handle, @user.flickr_detail), class: "action-link" %>
+				<% else %>
+					<%= link_to 'Activate', new_user_flickr_detail_path(@user.handle), class: "action-link action-link-primary" %>
+				<% end %>
+			</td>
+		</tr>
+		<tr>
+			<th>Medium</th>
+			<td><%= @user.medium_detail ? @user.medium_detail.username : "-" %></td>
+			<td>
+				<% if @user.medium_detail %>
+					<%= link_to 'Update', edit_user_medium_detail_path(@user.handle, @user.medium_detail), class: "action-link" %>
+				<% else %>
+					<%= link_to 'Activate', new_user_medium_detail_path(@user.handle), class: "action-link action-link-primary" %>
+				<% end %>
+			</td>
+		</tr>
+	</table>
+</section>
 
-<h4>Modules</h4>
-<% if @user.flickr_detail %>
-	<p><strong>Flickr username:</strong> <%= @user.flickr_detail.username %> <%= link_to 'Update', edit_user_flickr_detail_path(@user.handle, @user.flickr_detail) %></p>
-<% else %>
-	<p><%= link_to 'Import photos from my Flickr account', new_user_flickr_detail_path(@user.handle) %></p>
-<% end %>
-<% if @user.medium_detail %>
-	<p><strong>Username:</strong> <%= @user.medium_detail.username %> <%= link_to 'Update', edit_user_medium_detail_path(@user.handle, @user.medium_detail) %></p>
-<% else %>
-	<p><%= link_to 'Import posts from my Medium account', new_user_medium_detail_path(@user.handle) %></p>
-<% end %>
+<section>
+	<h3>Customise style</h3>
+	<p><strong>Blog style:</strong> <%= @user.styles %> 
+	<%= link_to 'Change', user_edit_path(@user.handle), class: "action-link" %></p>
+</section>
 
 <p><%= link_to 'Sign out', destroy_user_session_path, method: 'delete', class: "button-link button-link-primary" %></p>
 <p><%= link_to "Back", :back %></p>

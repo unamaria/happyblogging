@@ -2,7 +2,17 @@ body {
 	font-family: $serif;
 	font-size: 100%;
 }
+
 // tags
+main {
+  max-width: 40em;
+	margin: 0 auto;
+}
+
+section {
+	margin-bottom: 2em;
+}
+
 img {
 	max-width: 100%;
 }
@@ -19,18 +29,13 @@ li {
 }
 
 pre {
-	border: 1px solid $subtle-color;
+	border: 1px solid $subtle_color;
   border-radius: .5em;
   padding: .5em;
 }
 
 code {
 	font-family: monospace;
-}
-
-main {
-  max-width: 40em;
-	margin: 0 auto;
 }
 
 p, a, li {
@@ -90,6 +95,20 @@ article {
 	}
 }
 
+table {
+	border: 1px solid $subtle_color;
+}
+
+th {
+	font-weight: bold;
+}
+
+td, th {
+	padding: .5em 1em;
+	border-bottom: 1px solid $subtle_color;
+	border-right: 1px solid $subtle_color;
+}
+
 // general
 .container {
 	padding: 1em;
@@ -99,12 +118,34 @@ article {
 	vertical-align: top;
 }
 
+a.action-link {
+	color: $link_color;
+	font-family: $sans;
+}
+
+a.action-link-primary {
+	color: $main-color;
+}
+
+a.content-link {
+	color: inherit;
+  border-bottom: 1px solid $subtle_color;
+  text-decoration: none;
+  &:hover {
+  	font-weight: bold;
+  }
+}
+
 .button-link {
 	background-color: $secondary_color;
-  color: #FFF;
+  color: white;
   margin: 1em 0;
   padding: .5em;
   font-family: $sans;
+}
+
+a.button-link {
+	color: white;
 }
 
 .button-link-primary {
