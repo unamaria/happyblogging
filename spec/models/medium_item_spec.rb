@@ -10,8 +10,6 @@ RSpec.describe MediumItem, :type => :model do
 		@ramona.password = 'testtest'
 		@ramona.save
 
-		# @ramona.medium_detail = MediumDetail.create!(username: "uesteibar")
-
 		@medium_item = MediumItem.create!(
 			:title => "Snoopy",
       :subtitle => "Snoopy and friends",
