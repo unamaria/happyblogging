@@ -1,3 +1,11 @@
+<h2>Photos from Flickr</h2>
+<table>
 <% @photos.each do |photo| %>
-	<%= render partial: photo %>
+	<tr>
+		<th><%= link_to photo.title, user_flickr_item_path(params[:user_id], photo), class: "content-link" %></th>
+		<td><%= link_to 'Edit', edit_user_flickr_item_path(current_user, photo), class: "action-link" %></td>
+		<td><%= link_to 'Delete', user_flickr_item_path(current_user, photo), method: :delete, data: { confirm: "Are you sure?" }, class: "action-link" %></td>
+	</tr>
 <% end %>
+	
+</table>
