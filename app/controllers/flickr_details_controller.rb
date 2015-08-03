@@ -1,5 +1,5 @@
 class FlickrDetailsController < ApplicationController
-	before_action :find_user, only: [:edit, :update, :create, :destroy]
+	before_action :find_user, only: [:edit, :update, :create]
 
 	def new
 		@flickr_detail = FlickrDetail.new
@@ -23,12 +23,6 @@ class FlickrDetailsController < ApplicationController
 		flickr_detail.update(flickr_detail_params.merge(
 			{nsid: flickrID}))
 
-		redirect_to user_path(@user.handle)
-	end
-
-	def destroy
-		flickr_detail = FlickrDetail.find(params[:id])
-		FlickrDetail.destroy(flickr_detail)
 		redirect_to user_path(@user.handle)
 	end
 
