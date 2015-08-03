@@ -7,3 +7,6 @@
 
   <%= f.submit "Update", class: 'button' %>
 <% end %>
+
+<p>Don't want to import photos from Flickr anymore?</p>
+<%= link_to 'Delete Flickr module', user_flickr_detail_path, method: :delete, data: { confirm: "Are you sure?" }, class: "action-link" %>

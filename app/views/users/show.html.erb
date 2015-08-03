@@ -12,10 +12,10 @@
 <h3>Your content</h3>
 	<ul>
 		<li><%= link_to 'Posts', user_post_items_path(@user.handle), class: "content-link" %></li>
-		<% if @user.medium_detail %>
+		<% if @user.medium_items %>
 		<li><%= link_to 'Posts from Medium', user_medium_items_path(@user.handle), class: "content-link" %></li>
 		<% end %>
-		<% if @user.flickr_detail %>
+		<% if @user.flickr_items %>
 		<li><%= link_to 'Photos from Flickr', user_flickr_items_path(@user.handle), class: "content-link" %></li>
 		<% end %>
 	</ul>
@@ -26,7 +26,7 @@
 	<table>
 		<tr>
 			<th>Flickr</th>
-			<td><%= @user.flickr_detail ? @user.flickr_detail.username : "OFF" %></td>
+			<td><%= @user.flickr_detail ? @user.flickr_detail.username : "-" %></td>
 			<td>
 				<% if @user.flickr_detail %>
 					<%= link_to 'Update', edit_user_flickr_detail_path(@user.handle, @user.flickr_detail), class: "action-link" %>

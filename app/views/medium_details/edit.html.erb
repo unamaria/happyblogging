@@ -7,3 +7,6 @@
 
   <%= f.submit "Update", class: 'button' %>
 <% end %>
+
+<p>Don't want to import posts from Medium anymore?</p>
+<%= link_to 'Delete Medium module', user_medium_detail_path, method: :delete, data: { confirm: "Are you sure?" }, class: "action-link" %>

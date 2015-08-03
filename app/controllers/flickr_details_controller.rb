@@ -1,6 +1,5 @@
 class FlickrDetailsController < ApplicationController
-	before_action :find_user, only: [:edit, :update, :create]
-	# before_action :load_flickr_content_service, only: [:update, :create]
+	before_action :find_user, only: [:edit, :update, :create, :destroy]
 
 	def new
 		@flickr_detail = FlickrDetail.new
@@ -27,6 +26,12 @@ class FlickrDetailsController < ApplicationController
 		redirect_to user_path(@user.handle)
 	end
 
+	def destroy
+		flickr_detail = FlickrDetail.find(params[:id])
+		FlickrDetail.destroy(flickr_detail)
+		redirect_to user_path(@user.handle)
+	end
+
 	private
 
 	def flickr_detail_params
@@ -36,8 +41,4 @@ class FlickrDetailsController < ApplicationController
 	def find_user
 		@user = User.find_by_handle(params[:user_id])
 	end
-
-	# def load_flickr_content_service(service = FlickrContentService.new)
- #    @flickr_content_service ||= service
- # 	end
 end

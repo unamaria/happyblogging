@@ -1,5 +1,5 @@
 class MediumDetailsController < ApplicationController
-	before_action :find_user, only: [:edit, :update, :create]
+	before_action :find_user, only: [:edit, :update, :create, :destroy]
 
 	def new
 		@medium_detail = MediumDetail.new
@@ -22,6 +22,12 @@ class MediumDetailsController < ApplicationController
 		else
 			render :edit
 		end
+	end
+
+	def destroy
+		medium_detail = MediumDetail.find(params[:id])
+		MediumDetail.destroy(medium_detail)
+		redirect_to user_path(@user.handle)
 	end
 
 	private
