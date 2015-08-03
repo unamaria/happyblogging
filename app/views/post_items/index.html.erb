@@ -1,13 +1,11 @@
+<h2>Posts</h2>
+<table>
 <% @posts.each do |post| %>
-	<h2><%= link_to post.title, user_post_item_path(params[:user_id], post) %></h2>
-
-	<p class="meta">posted <%= time_ago_in_words(post.created_at) %> ago</p>
-
-	<article>
-	<%= simple_format(truncate(post.body, length: 350, separator: ' ')) %>
-	</article>
-
-	<% if current_user && current_user.id == post.blog_item.user_id %>
-	<p><%= link_to 'Edit', edit_user_post_item_path(current_user, post) %></p>
-	<% end %>
+	<tr>
+		<th><%= link_to post.title, user_post_item_path(params[:user_id], post), class: "content-link" %></th>
+		<td><%= link_to 'Edit', edit_user_post_item_path(current_user, post), class: "action-link" %></td>
+		<td><%= link_to 'Delete', user_post_item_path(current_user, post), method: :delete, data: { confirm: "Are you sure?" }, class: "action-link" %></td>
+	</tr>
 <% end %>
+	
+</table>
