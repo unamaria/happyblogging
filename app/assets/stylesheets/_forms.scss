@@ -5,7 +5,7 @@ input, textarea {
 	border: 1px solid $subtle_color;
 }
 
-input[type=text], textarea {
+input[type=text], input[type=email], textarea {
 	width: 100%;
 	font-family: $serif;
 }

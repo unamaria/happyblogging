@@ -36,7 +36,9 @@ class FlickrContentService
 
 		response = @@conn.get url
 		data = JSON.parse(response.body)
-		data['user']['id']
+		unless data['state'] == 'fail'
+			data['user']['id']
+		end
 	end
 
 	def self.get_photos(user_id)

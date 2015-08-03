@@ -12,10 +12,10 @@
 <h3>Your content</h3>
 	<ul>
 		<li><%= link_to 'Posts', user_post_items_path(@user.handle), class: "content-link" %></li>
-		<% if @user.medium_items %>
+		<% if @user.medium_detail %>
 		<li><%= link_to 'Posts from Medium', user_medium_items_path(@user.handle), class: "content-link" %></li>
 		<% end %>
-		<% if @user.flickr_items %>
+		<% if @user.flickr_detail %>
 		<li><%= link_to 'Photos from Flickr', user_flickr_items_path(@user.handle), class: "content-link" %></li>
 		<% end %>
 	</ul>
