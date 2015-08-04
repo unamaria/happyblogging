@@ -12,7 +12,8 @@ class PostItemsController < ApplicationController
 	end
 
 	def create
-		post = PostItem.new(post_item_params)
+		# post = PostItem.new(post_item_params)
+		post = PostItem.new(title: params[:title], body: params[:body])
 		user = User.find_by_handle(params[:user_id])
 		if post.save
 			create_blog_item(user, post)
