@@ -6,6 +6,12 @@
 <%= simple_format(truncate(medium_item.body, length: 350, separator: ' ')) %>
 </article>
 
+<p>	
+	<% medium_item.blog_item.tags.each do |tag| %>
+		<span class="label"><%= link_to tag.name, "/#{medium_item.author.handle}?tag=#{tag.name}" %></span>
+	<% end %>
+</p>
+
 <% if current_user && current_user.id == medium_item.blog_item.user_id %>
 <p><%= link_to 'Edit', edit_user_medium_item_path(current_user, medium_item), class: "action-link" %></p>
 <% end %>
