@@ -69,3 +69,12 @@ a.action-link {
 	color: $link_color;
 	font-family: $serif;
 }
+
+span.label {
+	background-color: $subtle-color;
+	a {
+		color: darken($subtle-color, 50);
+	}
+}
+
+
