@@ -1,4 +1,4 @@
-<h2><%= flickr_item.title %></h2>
+<h2><%= link_to flickr_item.title, user_flickr_item_path(params[:handle], flickr_item) %></h2>
 
 <p class="meta">taken <%= time_ago_in_words(flickr_item.posted_at) %> ago</p>
 

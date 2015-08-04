@@ -6,6 +6,9 @@ class CommentsController < ApplicationController
 		elsif params[:medium_item_id]
 			item = create_comment(MediumItem, params[:medium_item_id])
 			redirect_to user_medium_item_path(item.author.handle, item), notice: "Comment successfully added."
+		elsif params[:flickr_item_id]
+			item = create_comment(FlickrItem, params[:flickr_item_id])
+			redirect_to user_flickr_item_path(item.author.handle, item), notice: "Comment successfully added."
 		end
 	end
 

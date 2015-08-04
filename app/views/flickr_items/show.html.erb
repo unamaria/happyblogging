@@ -1,3 +1,28 @@
-<%= render partial: @photo %>
+<h2><%= @photo.title %></h2>
+
+<p class="meta">taken <%= time_ago_in_words(@photo.posted_at) %> ago</p>
+
+<a data-flickr-embed="true" href="<%= @photo.flickr_url(@photo.owner_nsid, @photo.photo_id) %>">
+	<img src="<%= @photo.direct_url(@photo.farm, @photo.server, @photo.photo_id, @photo.secret) %>" alt=<%= @photo.title %>>
+</a>
+<script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
+
+<p><%= simple_format(@photo.description) %></p>
+
+<% if current_user && current_user.id == @photo.blog_item.user_id %>
+<p><%= link_to 'Edit', edit_user_flickr_item_path(current_user, @photo), class: "action-link" %></p>
+<% end %>
+
+<h3>Comments</h3>
+
+<%= form_for [@photo, Comment.new] do |f| %>
+  <%= f.label :author, "Your name" %><br/>
+  <%= f.text_field :author %>
+  <%= f.label :body, "New comment" %><br/>
+  <%= f.text_field :body %>
+  <p><%= f.submit "Add comment", class: "button" %></p>
+<% end %>
+
+<%= render partial: 'shared/comment', collection: @photo.blog_item.comments %>
 
 <%= link_to "Back", :back %>
