@@ -1,11 +1,13 @@
 <h2>Update photo</h2>
-<%= form_for @photo, method: 'put', url: {action: "update"} do |f| %>
 
-	<%= f.label :title %><br />
-	<%= f.text_field :title, placeholder: @photo.title %><br />
-	<%= f.label :description %><br />
-  <%= f.text_area :description, placeholder: simple_format(@photo.description) %><br />
-  <%= f.submit "Update photo", class: 'button button-primary' %>
+<%= form_tag user_flickr_item_path, method: :put do %>
+  <%= label_tag :title %>
+  <%= text_field_tag :title, @photo.title %>
+  <%= label_tag :description %>
+  <%= text_area_tag :description, @photo.description %>
+  <%= label_tag :tags, "Tags (separated by commas)" %>
+  <%= text_field_tag :tags, @tags %>
+  <%= submit_tag "Update photo", class: "button button-primary" %>
 <% end %>
 
 <%= link_to 'Delete', user_flickr_item_path, method: :delete, data: { confirm: "Are you sure?" }, class: "action-link" %>

@@ -7,6 +7,12 @@
 <%= md truncate(post_item.body, length: 350, separator: ' ') %>
 </article>
 
+<p>	
+	<% post_item.blog_item.tags.each do |tag| %>
+		<span class="label"><%= link_to tag.name, "/#{post_item.author.handle}?tag=#{tag.name}" %></span>
+	<% end %>
+</p>
+
 <% if current_user && current_user.id == post_item.blog_item.user_id %>
 <p><%= link_to 'Edit', edit_user_post_item_path(current_user, post_item), class: "action-link" %></p>
 <% end %>

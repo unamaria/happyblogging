@@ -9,6 +9,12 @@
 
 <p><%= simple_format(flickr_item.description) %></p>
 
+<p>	
+	<% flickr_item.blog_item.tags.each do |tag| %>
+		<span class="label"><%= link_to tag.name, "/#{flickr_item.author.handle}?tag=#{tag.name}" %></span>
+	<% end %>
+</p>
+
 <% if current_user && current_user.id == flickr_item.blog_item.user_id %>
 <p><%= link_to 'Edit', edit_user_flickr_item_path(current_user, flickr_item), class: "action-link" %></p>
 <% end %>

@@ -4,7 +4,12 @@ class PostItemsController < ApplicationController
 	before_action :authenticate_user!, except: [:show, :index]
 
 	def index
-		@posts = current_user.post_items.order(created_at: :desc) # when link in index blog items won't work
+		if params[:tag].present? 
+       @posts = Post.where(tag: params[:tag])
+			@posts = current_user.post_items.order(created_at: :desc)
+     else 
+			@posts = current_user.post_items.order(created_at: :desc)
+     end
 	end
 
 	def new
@@ -12,22 +17,26 @@ class PostItemsController < ApplicationController
 	end
 
 	def create
-		post = PostItem.new(post_item_params)
-		user = User.find_by_handle(params[:user_id])
+		post = PostItem.new(title: params[:title], body: params[:body])
+		tags = clean_tags_array(params[:tags])
 		if post.save
-			create_blog_item(user, post)
-			redirect_to user_post_item_path(user.handle, post.id)
+			blog_item = create_blog_item(current_user, post)
+			blog_item.create_or_find_tags(tags)
+			redirect_to user_post_item_path(current_user.handle, post.id)
 		else
 			render :new
 		end
 	end
 
 	def edit
+		@tags = @post.blog_item.tags_to_string
 	end
 
 	def update
-		@post.update_attributes(post_item_params)
-		redirect_to user_post_item_path(current_user, @post)
+		@post.update(title: params[:title], body: params[:body])
+		tags = clean_tags_array(params[:tags])
+		@post.blog_item.create_or_find_tags(tags)
+		redirect_to user_post_item_path(current_user.handle, @post)
 	end
 
 	def show
@@ -45,11 +54,15 @@ class PostItemsController < ApplicationController
 		@post = PostItem.find(params[:id])
 	end
 
-	def post_item_params
-		params.require(:post_item).permit(:title, :body)
-	end
+	# def post_item_params
+	# 	params.require(:post_item).permit(:title, :body)
+	# end
 
 	def create_blog_item(user, post)
 		BlogItem.create!(user_id: user.id, item_id: post.id, item_type: 'PostItem')
+	end
+
+	def clean_tags_array(tags)
+		tags.delete(' ').split(',')
 	end
 end

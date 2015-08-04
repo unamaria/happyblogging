@@ -11,8 +11,10 @@ class FlickrItemsController < ApplicationController
 	end
 
 	def update
-		@photo.update_attributes(photo_item_params)
-		redirect_to user_flickr_item_path(current_user, @photo)
+		@photo.update(title: params[:title], description: params[:description])
+		tags = clean_tags_array(params[:tags])
+		@photo.blog_item.create_or_find_tags(tags)
+		redirect_to user_flickr_item_path(current_user.handle, @photo)
 	end
 
 	def show
@@ -30,7 +32,11 @@ class FlickrItemsController < ApplicationController
 		@photo = FlickrItem.find(params[:id])
 	end
 
-	def photo_item_params
-		params.require(:flickr_item).permit(:title, :description)
+	# def photo_item_params
+	# 	params.require(:flickr_item).permit(:title, :description)
+	# end
+
+	def clean_tags_array(tags)
+		tags.delete(' ').split(',')
 	end
 end

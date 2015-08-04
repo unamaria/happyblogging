@@ -160,6 +160,14 @@ a.button-link {
 	background-color: $main_color;
 }
 
+span.label {
+	background-color: $subtle-color;
+	a {
+		color: darken($subtle-color, 50);
+	}
+  padding: .3em;
+}
+
 // flexbox
 .flex-container {
 	display: flex;

@@ -15,6 +15,9 @@
 
 <h1><%= @blog_user.handle %></h1>
 <% unless @blogitems.blank? %>
+	<% unless @tag.blank? %>
+		<h2>Tag: <%= @tag %></h2>
+	<% end %>
 	<% @blogitems.each do |blogitem| %>
 		<%= render partial: blogitem.item %>
 	<% end %>
