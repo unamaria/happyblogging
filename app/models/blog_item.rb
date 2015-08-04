@@ -14,4 +14,12 @@ class BlogItem < ActiveRecord::Base
 	def self.items_by_handle_and_tag(handle, tag)
 		BlogItem.joins(:author).where(users: {handle: handle}).joins(:tags).where(tags: {name: tag}).order(created_at: :desc)
 	end
+
+	def tags_to_string
+		tags_string = ""
+		tags.each do |tag|
+			tags_string = tags_string + tag.name + ", "
+		end
+		tags_string[0...-2]
+	end
 end

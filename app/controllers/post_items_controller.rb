@@ -18,22 +18,24 @@ class PostItemsController < ApplicationController
 
 	def create
 		post = PostItem.new(title: params[:title], body: params[:body])
-		user = User.find_by_handle(params[:user_id])
 		tags = clean_tags_array(params[:tags])
 		if post.save
-			blog_item = create_blog_item(user, post)
+			blog_item = create_blog_item(current_user, post)
 			create_or_find_tags(tags, blog_item)
-			redirect_to user_post_item_path(user.handle, post.id)
+			redirect_to user_post_item_path(current_user.handle, post.id)
 		else
 			render :new
 		end
 	end
 
 	def edit
+		@tags = @post.blog_item.tags_to_string
 	end
 
 	def update
-		@post.update_attributes(post_item_params)
+		@post.update(title: params[:title], body: params[:body])
+		tags = clean_tags_array(params[:tags])
+		create_or_find_tags(tags, @post.blog_item)
 		redirect_to user_post_item_path(current_user, @post)
 	end
 
@@ -52,9 +54,9 @@ class PostItemsController < ApplicationController
 		@post = PostItem.find(params[:id])
 	end
 
-	def post_item_params
-		params.require(:post_item).permit(:title, :body)
-	end
+	# def post_item_params
+	# 	params.require(:post_item).permit(:title, :body)
+	# end
 
 	def create_blog_item(user, post)
 		BlogItem.create!(user_id: user.id, item_id: post.id, item_type: 'PostItem')
