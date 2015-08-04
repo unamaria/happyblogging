@@ -15,5 +15,7 @@
   <%= text_field_tag(:title) %>
   <%= label_tag(:body) %>
   <%= text_area_tag(:body) %>
+  <%= label_tag(:tags, "Tags (separated by commas)") %>
+  <%= text_field_tag(:tags) %>
   <%= submit_tag("Create post", class: "button") %>
 <% end %>

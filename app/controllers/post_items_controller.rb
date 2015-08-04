@@ -15,8 +15,10 @@ class PostItemsController < ApplicationController
 		# post = PostItem.new(post_item_params)
 		post = PostItem.new(title: params[:title], body: params[:body])
 		user = User.find_by_handle(params[:user_id])
+		tags = clean_tags_array(params[:tags])
 		if post.save
-			create_blog_item(user, post)
+			blog_item = create_blog_item(user, post)
+			create_or_find_tags(tags, blog_item)
 			redirect_to user_post_item_path(user.handle, post.id)
 		else
 			render :new
@@ -52,5 +54,16 @@ class PostItemsController < ApplicationController
 
 	def create_blog_item(user, post)
 		BlogItem.create!(user_id: user.id, item_id: post.id, item_type: 'PostItem')
+	end
+
+	def clean_tags_array(tags)
+		tags.delete(' ').split(',')
+	end
+
+	def create_or_find_tags(tags, blog_item)
+		tags.each do |tag| 
+			tag = Tag.find_or_create_by(name: tag)
+			blog_item.tags << tag
+		end
 	end
 end
