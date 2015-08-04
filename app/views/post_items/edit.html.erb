@@ -1,13 +1,5 @@
 <h2>Update post</h2>
 <p>Remember you can use <a href="http://daringfireball.net/projects/markdown/" target="_blank">Markdown</a>.</p>
-<!-- <%= form_for @post, method: 'put', url: {action: "update"} do |f| %>
-
-	<%= f.label :title %><br />
-	<%= f.text_field :title, placeholder: @post.title %><br />
-	<%= f.label :body %><br />
-  <%= f.text_area :body, placeholder: simple_format(@post.body) %><br />
-  <%= f.submit "Update post", class: 'button button-primary' %>
-<% end %> -->
 
 <%= form_tag user_post_item_path, method: :put, url: {action: "update"} do %>
   <%= label_tag :title %>
