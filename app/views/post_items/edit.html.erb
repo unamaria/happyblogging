@@ -11,11 +11,11 @@
 
 <%= form_tag user_post_item_path, method: :put, url: {action: "update"} do %>
   <%= label_tag :title %>
-  <%= text_field_tag :title, nil, placeholder: @post.title %>
+  <%= text_field_tag :title, @post.title %>
   <%= label_tag :body %>
-  <%= text_area_tag :body, nil, placeholder: @post.body %>
+  <%= text_area_tag :body, @post.body %>
   <%= label_tag :tags, "Tags (separated by commas)" %>
-  <%= text_field_tag :tags, nil, placeholder: @tags %>
+  <%= text_field_tag :tags, @tags %>
   <%= submit_tag "Update post", class: "button button-primary" %>
 <% end %>
 
