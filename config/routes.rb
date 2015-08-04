@@ -14,4 +14,8 @@ Rails.application.routes.draw do
   	resources :flickr_details, except: [:index, :show]
   	resources :medium_details, except: [:index, :show]
   end
+
+  resources :post_items, only: [] do
+  	resources :comments, only: [:create]
+  end
 end
