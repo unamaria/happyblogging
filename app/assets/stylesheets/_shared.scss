@@ -161,11 +161,12 @@ a.button-link {
 }
 
 span.label {
+	font-size: .8em;
 	background-color: $subtle-color;
 	a {
 		color: darken($subtle-color, 50);
 	}
-  padding: .3em;
+  padding: .2em;
 }
 
 // flexbox

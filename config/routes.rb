@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   get 'users/profile/:handle' => 'users#show', as: 'user'
   get 'users/profile/:handle/style' => 'users#edit', as: 'user_edit'
   put 'users/profile/:handle' => 'users#update'
+  post 'users/profile/:handle' => 'users#sync_data', as: 'user_sync_data'
   get ':handle' => 'blog_items#index', as: 'user_index'
-
 
   resources :users, only: [] do
   	resources :post_items

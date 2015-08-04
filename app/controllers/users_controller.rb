@@ -15,6 +15,17 @@ class UsersController < ApplicationController
 		redirect_to user_path(current_user.handle)
 	end
 
+	def sync_data
+  	user = User.find_by_handle(params[:handle])
+		if user.medium_detail
+			MediumContentService.items(user)
+		end
+		if user.flickr_detail
+			FlickrContentService.items(user)
+		end
+		redirect_to user_index_path(user.handle), notice: "Content successfully added!"
+	end
+
 	private
 
 	def user_params

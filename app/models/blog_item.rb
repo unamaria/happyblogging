@@ -32,5 +32,4 @@ class BlogItem < ActiveRecord::Base
 			end
 		end
 	end
->>>>>>> tags
 end
