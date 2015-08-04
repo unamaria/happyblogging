@@ -1,11 +1,24 @@
 <h2>Update post from Medium</h2>
-<%= form_for @medium, method: 'put', url: {action: "update"} do |f| %>
+
+<%= form_tag user_medium_item_path, method: :put do %>
+  <%= label_tag :title %>
+  <%= text_field_tag :title, @medium.title %>
+  <%= label_tag :subtitle %>
+  <%= text_field_tag :subtitle, @medium.subtitle %>
+  <%= label_tag :body %>
+  <%= text_area_tag :body, @medium.body %>
+  <%= label_tag :tags, "Tags (separated by commas)" %>
+  <%= text_field_tag :tags, @tags %>
+  <%= submit_tag "Update post", class: "button button-primary" %>
+<% end %>
+
+<%= link_to 'Delete', user_medium_item_path, method: :delete, data: { confirm: "Are you sure?" } %>
+
+<!-- <%= form_for @medium, method: 'put', url: {action: "update"} do |f| %>
 
 	<%= f.label :title %><br />
 	<%= f.text_field :title, placeholder: @medium.title %><br />
 	<%= f.label :body %><br />
   <%= f.text_area :body, placeholder: simple_format(@medium.body) %><br />
   <%= f.submit "Update post", class: 'button button-primary' %>
-<% end %>
-
-<%= link_to 'Delete', user_medium_item_path, method: :delete, data: { confirm: "Are you sure?" } %>
+<% end %> -->

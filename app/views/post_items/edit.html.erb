@@ -1,7 +1,7 @@
 <h2>Update post</h2>
 <p>Remember you can use <a href="http://daringfireball.net/projects/markdown/" target="_blank">Markdown</a>.</p>
 
-<%= form_tag user_post_item_path, method: :put, url: {action: "update"} do %>
+<%= form_tag user_post_item_path, method: :put do %>
   <%= label_tag :title %>
   <%= text_field_tag :title, @post.title %>
   <%= label_tag :body %>
@@ -11,4 +11,4 @@
   <%= submit_tag "Update post", class: "button button-primary" %>
 <% end %>
 
-<%= link_to 'Delete', user_post_item_path, method: :delete, data: { confirm: "Are you sure?" } %>
+<%= link_to 'Delete', user_post_item_path, method: :delete, data: { confirm: "Are you sure?" }, class: "action-link" %>

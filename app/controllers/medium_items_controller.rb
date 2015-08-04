@@ -23,6 +23,7 @@ class MediumItemsController < ApplicationController
 	end
 
 	def edit
+		@tags = @medium.blog_item.tags_to_string
 	end
 
 	def update

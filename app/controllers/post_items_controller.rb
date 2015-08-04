@@ -21,7 +21,7 @@ class PostItemsController < ApplicationController
 		tags = clean_tags_array(params[:tags])
 		if post.save
 			blog_item = create_blog_item(current_user, post)
-			create_or_find_tags(tags, blog_item)
+			blog_item.create_or_find_tags(tags)
 			redirect_to user_post_item_path(current_user.handle, post.id)
 		else
 			render :new
@@ -35,8 +35,8 @@ class PostItemsController < ApplicationController
 	def update
 		@post.update(title: params[:title], body: params[:body])
 		tags = clean_tags_array(params[:tags])
-		create_or_find_tags(tags, @post.blog_item)
-		redirect_to user_post_item_path(current_user, @post)
+		@post.blog_item.create_or_find_tags(tags)
+		redirect_to user_post_item_path(current_user.handle, @post)
 	end
 
 	def show
@@ -64,12 +64,5 @@ class PostItemsController < ApplicationController
 
 	def clean_tags_array(tags)
 		tags.delete(' ').split(',')
-	end
-
-	def create_or_find_tags(tags, blog_item)
-		tags.each do |tag| 
-			tag = Tag.find_or_create_by(name: tag)
-			blog_item.tags << tag
-		end
 	end
 end
