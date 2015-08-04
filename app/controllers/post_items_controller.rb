@@ -4,7 +4,12 @@ class PostItemsController < ApplicationController
 	before_action :authenticate_user!, except: [:show, :index]
 
 	def index
-		@posts = current_user.post_items.order(created_at: :desc) # when link in index blog items won't work
+		if params[:tag].present? 
+       @posts = Post.where(tag: params[:tag])
+			@posts = current_user.post_items.order(created_at: :desc)
+     else 
+			@posts = current_user.post_items.order(created_at: :desc)
+     end
 	end
 
 	def new
@@ -12,7 +17,6 @@ class PostItemsController < ApplicationController
 	end
 
 	def create
-		# post = PostItem.new(post_item_params)
 		post = PostItem.new(title: params[:title], body: params[:body])
 		user = User.find_by_handle(params[:user_id])
 		tags = clean_tags_array(params[:tags])

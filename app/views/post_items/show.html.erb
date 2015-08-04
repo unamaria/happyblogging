@@ -6,7 +6,7 @@
 
 <p>	
 	<% @post.blog_item.tags.each do |tag| %>
-		<span><%= tag.name %></span>
+		<%= link_to tag.name, "/#{@post.author.handle}?tag=#{tag.name}" %>
 	<% end %>
 </p>
 
