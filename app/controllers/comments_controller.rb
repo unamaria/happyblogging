@@ -16,7 +16,8 @@ class CommentsController < ApplicationController
 
 	def create_comment(model, item_id)
 		item = model.find(item_id)
-		item.blog_item.comments << Comment.create!(author: params[:comment][:author], body: params[:comment][:body])
+		author = params[:comment][:author] || current_user.name
+		item.blog_item.comments << Comment.create!(author: author, body: params[:comment][:body])
 		item
 	end
 end

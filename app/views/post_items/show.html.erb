@@ -21,8 +21,10 @@
 <h3>Comments</h3>
 
 <%= form_for [@post, Comment.new] do |f| %>
-  <%= f.label :author, "Your name" %><br/>
-  <%= f.text_field :author %>
+	<% unless current_user %>
+	  <%= f.label :author, "Your name" %><br/>
+	  <%= f.text_field :author %>
+	<% end %>
   <%= f.label :body, "New comment" %><br/>
   <%= f.text_field :body %>
   <p><%= f.submit "Add comment", class: "button" %></p>
