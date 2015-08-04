@@ -6,6 +6,12 @@
 	<%= simple_format(@medium.body) %>
 </article>
 
+<p>	
+	<% @medium.blog_item.tags.each do |tag| %>
+		<span class="label"><%= link_to tag.name, "/#{@medium.author.handle}?tag=#{tag.name}" %></span>
+	<% end %>
+</p>
+
 <% if current_user && current_user.id == @medium.blog_item.user_id %>
 	<p><%= link_to 'Edit', edit_user_medium_item_path(current_user, @medium) %></p>
 <% end %>
