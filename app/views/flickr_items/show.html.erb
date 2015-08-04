@@ -9,6 +9,15 @@
 
 <p><%= simple_format(@photo.description) %></p>
 
+<p>	
+	<% @photo.blog_item.tags.each do |tag| %>
+		<span class="label"><%= link_to tag.name, "/#{@photo.author.handle}?tag=#{tag.name}" %></span>
+	<% end %>
+</p>
+
+<p><a href="https://twitter.com/share" class="twitter-share-button" data-text="<%= @photo.title.blank? ? "Check out " : @photo.title %>" data-size="large" data-count="none" data-hashtags="happyblogging" data-dnt="true">Tweet</a></p>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
 <% if current_user && current_user.id == @photo.blog_item.user_id %>
 <p><%= link_to 'Edit', edit_user_flickr_item_path(current_user, @photo), class: "action-link" %></p>
 <% end %>
