@@ -12,12 +12,6 @@
 
 <h3>Comments</h3>
 
-<%= form_for [@post, Comment.new] do |f| %>
-  <%= f.label :author, "Your name" %><br/>
-  <%= f.text_field :author %>
-  <%= f.label :body, "New comment" %><br/>
-  <%= f.text_field :body %>
-  <p><%= f.submit "Add comment" %></p>
-<% end %>
+<%= render partial: 'shared/comment_form' %>
 
 <%= render partial: 'shared/comment', collection: @post.blog_item.comments %>
