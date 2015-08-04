@@ -8,6 +8,10 @@ class BlogItem < ActiveRecord::Base
 	end
 
 	def self.items_by_tag(tag)
-		BlogItem.joins(:tags).where(tags: {name: tag}).includes(:item)
+		BlogItem.joins(:tags).where(tags: {name: tag}).includes(:item).order(created_at: :desc)
+	end
+
+	def self.items_by_handle_and_tag(handle, tag)
+		BlogItem.joins(:author).where(users: {handle: handle}).joins(:tags).where(tags: {name: tag}).order(created_at: :desc)
 	end
 end
