@@ -11,8 +11,9 @@ class UsersController < ApplicationController
 	end
 
 	def update
+		# updates styles
 		current_user.update(user_params)
-		redirect_to user_path(current_user.handle)
+		redirect_to user_index_path(current_user.handle)
 	end
 
 	def sync_data
