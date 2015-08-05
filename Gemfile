@@ -28,6 +28,7 @@ gem 'devise', '3.5.1'
 
 # Use Heroku to deploy
 gem 'rails_12factor', group: :production
+gem 'puma', group: :production
 
 # Use Faraday for HTTP requests
 gem 'faraday', '~> 0.9.1'
