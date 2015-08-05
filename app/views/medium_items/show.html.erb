@@ -21,13 +21,15 @@
 
 <%= link_to "Back", :back %>
 
-<h3>Comments</h3>
+<h3 class="comments">Comments</h3>
 
 <%= form_for [@medium, Comment.new] do |f| %>
-  <%= f.label :author, "Your name" %><br/>
-  <%= f.text_field :author %>
-  <%= f.label :body, "New comment" %><br/>
-  <%= f.text_field :body %>
+	<% unless current_user %>
+	  <%= f.label :author, "Your name" %><br/>
+	  <%= f.text_field :author %>
+	<% end %>
+  <%= f.label :body, "New comment (Markdown supported)" %><br/>
+  <%= f.text_area :body, class: "comments-body" %>
   <p><%= f.submit "Add comment", class: "button" %></p>
 <% end %>
 

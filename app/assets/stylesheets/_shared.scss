@@ -225,3 +225,14 @@ header.flex-container {
 	color: $subtle_color;
 	font-style: italic;
 }
+
+// comments
+h3.comments {
+	border-top: 1px solid $subtle_color;
+  margin-top: 2em;
+}
+
+textarea.comments-body {
+	height: 10em;
+}
+
