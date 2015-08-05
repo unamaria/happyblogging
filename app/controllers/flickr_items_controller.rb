@@ -18,6 +18,7 @@ class FlickrItemsController < ApplicationController
 	end
 
 	def show
+		@blog_user = @blog_user = User.find_by_handle(params[:user_id])
 	end
 
 	def destroy

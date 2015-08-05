@@ -1,3 +1,4 @@
+<h1><%= link_to @blog_user.handle, user_index_path(@blog_user.handle) %></h1>
 <h2><%= @photo.title %></h2>
 
 <p class="meta">taken <%= time_ago_in_words(@photo.posted_at) %> ago</p>

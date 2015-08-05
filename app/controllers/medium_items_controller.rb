@@ -7,21 +7,6 @@ class MediumItemsController < ApplicationController
 		@mediums = current_user.medium_items.order(created_at: :desc)
 	end
 
-	# def new
-	# 	@medium = MediumItem.new
-	# end
-
-	# def create
-	# 	medium = MediumItem.new(medium_item_params)
-	# 	user = User.find_by_handle(params[:user_id])
-	# 	if medium.save
-	# 		create_blog_item(user, medium)
-	# 		redirect_to user_medium_item_path(user.handle, medium.id)
-	# 	else
-	# 		render :new
-	# 	end
-	# end
-
 	def edit
 		@tags = @medium.blog_item.tags_to_string
 	end
@@ -34,6 +19,7 @@ class MediumItemsController < ApplicationController
 	end
 
 	def show
+		@blog_user = @blog_user = User.find_by_handle(params[:user_id])
 	end
 
 	def destroy
@@ -47,10 +33,6 @@ class MediumItemsController < ApplicationController
 	def find_medium
 		@medium = MediumItem.find(params[:id])
 	end
-
-	# def medium_item_params
-	# 	params.require(:medium_item).permit(:title, :subtitle, :body)
-	# end
 
 	def create_blog_item(user, medium)
 		BlogItem.create!(user_id: user.id, item_id: medium.id, item_type: 'MediumItem')
