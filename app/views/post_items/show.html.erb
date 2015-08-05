@@ -2,7 +2,7 @@
 
 <p class="meta">posted <%= time_ago_in_words(@post.created_at) %> ago</p>
 
-<article><%= md @post.body %></article>
+<article><%= simple_format(md @post.body) %></article>
 
 <p>	
 	<% @post.blog_item.tags.each do |tag| %>
