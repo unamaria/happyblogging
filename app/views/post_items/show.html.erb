@@ -20,14 +20,5 @@
 
 <h3 class="comments">Comments</h3>
 
-<%= form_for [@post, Comment.new] do |f| %>
-	<% unless current_user %>
-	  <%= f.label :author, "Your name" %><br/>
-	  <%= f.text_field :author %>
-	<% end %>
-  <%= f.label :body, "New comment (Markdown supported)" %><br/>
-  <%= f.text_area :body, class: "comments-body" %>
-  <p><%= f.submit "Add comment", class: "button" %></p>
-<% end %>
-
+<%= render partial: 'shared/comment_form', :locals => {item: @post} %>
 <%= render partial: 'shared/comment', collection: @post.blog_item.comments %>
