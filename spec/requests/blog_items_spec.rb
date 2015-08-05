@@ -47,6 +47,7 @@ RSpec.describe "Blog items", type: :request do
   describe "GET /:handle" do
     it "returns all kinds of items" do
       get user_index_path(@ramona.handle)
+      # expect(response.body).to match() CHECK IF TITLE TEXT IS THERE / PARSE WITH NOKOGIRI 
       expect(assigns(:blogitems).count).to eq(3)
     end
   end
