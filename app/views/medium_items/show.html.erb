@@ -12,8 +12,7 @@
 	<% end %>
 </p>
 
-<p><a href="https://twitter.com/share" class="twitter-share-button" data-text="<%= @medium.title.blank? ? "Check out " : @medium.title %>" data-size="large" data-count="none" data-hashtags="happyblogging" data-dnt="true">Tweet</a></p>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<%= render partial: 'shared/tweet', :locals => {item: @medium} %>
 
 <% if current_user && current_user.id == @medium.blog_item.user_id %>
 	<p><%= link_to 'Edit', edit_user_medium_item_path(current_user, @medium) %></p>
