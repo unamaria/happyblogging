@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<% if content_for? :custom_fonts %>
-    <%= yield :custom_fonts %>
+	<% if @blog_user %>
+    <% if @blog_user.styles == "notebook" %>
+			<link href='//fonts.googleapis.com/css?family=Roboto:300,700|Pacifico' rel='stylesheet' type='text/css'>
+		<% elsif @blog_user.styles == "pulp" %>
+			<link href='//fonts.googleapis.com/css?family=Sigmar+One|Libre+Baskerville:400,400italic,700' rel='stylesheet' type='text/css'>
+		<% end %>
 	<% else %>
 		<link href='//fonts.googleapis.com/css?family=Lora:400,400italic,700|Ubuntu' rel='stylesheet' type='text/css'>
 	<% end %>
@@ -10,8 +14,12 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Happyblogging</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
-  <% if content_for? :custom_css %>
-  	<%= yield :custom_css %>
+  <% if @blog_user %>
+  	<% if @blog_user.styles == "notebook" %>
+	  	<link rel="stylesheet" media="all" href="<%= asset_path 'notebook/main.css' %>">
+		<% elsif @blog_user.styles == "pulp" %>
+	  	<link rel="stylesheet" media="all" href="<%= asset_path 'pulp/main.css' %>">
+		<% end %>
   <% end %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
