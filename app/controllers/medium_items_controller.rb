@@ -15,7 +15,7 @@ class MediumItemsController < ApplicationController
 		@medium.update(title: params[:title], subtitle: params[:subtitle], body: params[:body])
 		tags = clean_tags_array(params[:tags])
 		@medium.blog_item.create_or_find_tags(tags)
-		redirect_to user_medium_item_path(current_user.handle, @medium)
+		redirect_to user_medium_item_path(current_user.handle, @medium), notice: "Post updated successfully."
 	end
 
 	def show
@@ -25,7 +25,7 @@ class MediumItemsController < ApplicationController
 	def destroy
 		medium = MediumItem.find(params[:id])
 		MediumItem.destroy(medium)
-		redirect_to root_path #medium.blog_item = nil, ?
+		redirect_to user_medium_items_path(params[:user_id]), notice: "Post deleted successfully." #medium.blog_item = nil, ?
 	end
 
 	private

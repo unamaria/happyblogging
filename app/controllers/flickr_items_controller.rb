@@ -14,7 +14,7 @@ class FlickrItemsController < ApplicationController
 		@photo.update(title: params[:title], description: params[:description])
 		tags = clean_tags_array(params[:tags])
 		@photo.blog_item.create_or_find_tags(tags)
-		redirect_to user_flickr_item_path(current_user.handle, @photo)
+		redirect_to user_flickr_item_path(current_user.handle, @photo), notice: "Photo updated successfully."
 	end
 
 	def show
@@ -24,7 +24,7 @@ class FlickrItemsController < ApplicationController
 	def destroy
 		photo = FlickrItem.find(params[:id])
 		FlickrItem.destroy(photo)
-		redirect_to root_path #photo.blog_item = nil, ?
+		redirect_to user_flickr_items_path(params[:user_id]), notice: "Photo deleted successfully." #photo.blog_item = nil, ?
 	end
 
 	private

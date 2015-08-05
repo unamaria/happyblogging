@@ -36,7 +36,7 @@ class PostItemsController < ApplicationController
 		@post.update(title: params[:title], body: params[:body])
 		tags = clean_tags_array(params[:tags])
 		@post.blog_item.create_or_find_tags(tags)
-		redirect_to user_post_item_path(current_user.handle, @post)
+		redirect_to user_post_item_path(current_user.handle, @post), notice: "Post updated successfully."
 	end
 
 	def show
@@ -46,7 +46,7 @@ class PostItemsController < ApplicationController
 	def destroy
 		post = PostItem.find(params[:id])
 		PostItem.destroy(post)
-		redirect_to root_path #post.blog_item = nil, ?
+		redirect_to user_post_items_path(params[:user_id]), notice: "Post deleted successfully." #post.blog_item = nil, ?
 	end
 
 	private

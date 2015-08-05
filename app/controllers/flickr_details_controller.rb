@@ -10,7 +10,7 @@ class FlickrDetailsController < ApplicationController
 		FlickrDetail.create(flickr_detail_params.merge(
 			{nsid: flickrID, user_id: @user.id}))
 
-		redirect_to user_path(@user.handle)
+		redirect_to user_path(@user.handle), notice: "Username added successfully."
 	end
 
 	def edit
@@ -23,7 +23,7 @@ class FlickrDetailsController < ApplicationController
 		flickr_detail.update(flickr_detail_params.merge(
 			{nsid: flickrID}))
 
-		redirect_to user_path(@user.handle)
+		redirect_to user_path(@user.handle), notice: "Username updated successfully."
 	end
 
 	private

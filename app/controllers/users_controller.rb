@@ -13,7 +13,7 @@ class UsersController < ApplicationController
 	def update
 		# updates styles
 		current_user.update(user_params)
-		redirect_to user_index_path(current_user.handle)
+		redirect_to user_index_path(current_user.handle), notice: "Style updated successfully."
 	end
 
 	def sync_data
@@ -24,7 +24,7 @@ class UsersController < ApplicationController
 		if user.flickr_detail
 			FlickrContentService.items(user)
 		end
-		redirect_to user_index_path(user.handle), notice: "Content successfully added!"
+		redirect_to user_index_path(user.handle), notice: "Content added successfully!"
 	end
 
 	private
