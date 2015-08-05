@@ -7,9 +7,9 @@
 <% end %>
 <% content_for :custom_css do %>
 	<% if @blog_user.styles == "notebook" %>
-  	<link rel="stylesheet" media="all" href="/assets/notebook/main.css">
+  	<link rel="stylesheet" media="all" href="<%= asset_path 'notebook/main.css' %>">
 	<% elsif @blog_user.styles == "pulp" %>
-  	<link rel="stylesheet" media="all" href="/assets/pulp/main.css">
+  	<link rel="stylesheet" media="all" href="<%= asset_path 'pulp/main.css' %>">
 	<% end %>
 <% end %>
 
