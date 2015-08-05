@@ -1,0 +1,71 @@
+div.loader-container {
+	margin: 0 auto;
+	position: relative;
+	width: 200px;
+	height: 200px;
+}
+
+div#loader {
+	display: none;
+	font-size: 2em;
+	text-align: center;
+
+	#triangle-down {
+	  position: absolute;
+	  bottom: 76px;
+		width: 0;
+		height: 0;
+		border-left: 80px solid transparent;
+		border-right: 80px solid transparent;
+		border-top: 100px solid $main_color;
+		animation: loader 3s linear 0s infinite;
+	}
+
+	#trapezoid {
+	  position: absolute;
+	  top: -16px;
+		border-bottom: 40px solid $main_color;
+		border-left: 25px solid transparent;
+		border-right: 25px solid transparent;
+		height: 0;
+		width: 160px;
+		animation: loader 3s linear 0s infinite;
+	}
+
+	#triangle-down-mini {
+	  position: absolute;
+	  bottom: 80px;
+	  left: 60px;
+	  z-index: 5;
+		width: 0;
+		height: 0;
+		border-left: 20px solid transparent;
+		border-right: 20px solid transparent;
+		border-top: 25px solid $subtle_color;
+		animation: loader 3s linear 0s infinite;
+	}
+
+	#trapezoid-mini {
+	  position: absolute;
+	  bottom: 105px;
+	  left: 60px;
+	  z-index: 5;
+		border-bottom: 10px solid $subtle_color;
+		border-left: 6.025px solid transparent;
+		border-right: 6.025px solid transparent;
+		height: 0;
+		width: 40px;
+		animation: loader 3s linear 0s infinite;
+	}
+
+	@keyframes loader {
+	  from {
+	  	opacity: 0;
+	  }
+
+	  to {
+	    opacity: 1;
+	  }
+	}
+}
+
