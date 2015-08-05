@@ -2,7 +2,7 @@
 
 <p>Welcome! This is <strong>Happy blogging</strong>, a blog service build with and inspired by Ruby.</p>
 
-<p><strong><%= link_to 'Sign up', new_user_registration_path %></strong> and start writing your posts (Markdown support? Checked!).</p>
+<p><strong><%= link_to 'Sign up', new_user_registration_path, class: "action-link" %></strong> and start writing your posts (Markdown support? Checked!).</p>
 <p>Would you like to import your posts from Medium? What about your photos from Flickr? We got you covered!</p>
 
 <blockquote>
@@ -15,6 +15,6 @@
 <h2>Popular blogs</h2>
 <ul>
 	<% @blogs.each do |blog| %>
-		<li><%= link_to blog.handle, user_index_path(blog.handle), data: { no_turbolink: true } %></li>
+		<li><%= link_to blog.handle, user_index_path(blog.handle), class: "content-link" %></li>
 	<% end %>
 </ul>
