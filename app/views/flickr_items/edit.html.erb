@@ -5,7 +5,7 @@
   <%= text_field_tag :title, @photo.title %>
   <%= label_tag :description %>
   <%= text_area_tag :description, @photo.description %>
-  <%= label_tag :tags, "Tags (separated by commas)" %>
+  <%= label_tag :tags, "Tags (separated by comma)" %>
   <%= text_field_tag :tags, @tags %>
   <%= submit_tag "Update photo", class: "button button-primary" %>
 <% end %>

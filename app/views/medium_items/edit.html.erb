@@ -7,7 +7,7 @@
   <%= text_field_tag :subtitle, @medium.subtitle %>
   <%= label_tag :body %>
   <%= text_area_tag :body, @medium.body %>
-  <%= label_tag :tags, "Tags (separated by commas)" %>
+  <%= label_tag :tags, "Tags (separated by comma)" %>
   <%= text_field_tag :tags, @tags %>
   <%= submit_tag "Update post", class: "button button-primary" %>
 <% end %>
