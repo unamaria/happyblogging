@@ -1,3 +1,4 @@
+
 <h1><%= link_to @blog_user.handle, user_index_path(@blog_user.handle) %></h1>
 <h2><%= @post.title %></h2>
 
@@ -17,7 +18,7 @@
 	<p><%= link_to 'Edit', edit_user_post_item_path(current_user, @post), class: "action-link" %></p>
 <% end %>
 
-<%= link_to "Back", :back %>
+<%= link_to "Back", :back, class: "action-link" %>
 
 <h3 class="comments">Comments</h3>
 

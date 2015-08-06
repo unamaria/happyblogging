@@ -68,11 +68,11 @@
 		<h3>Customise style</h3>
 		<p><strong>Blog style:</strong> <%= @user.styles %> 
 		<%= link_to 'Change', user_edit_path(@user.handle), class: "action-link", id: "choose-style" %></p>
-	</section>
 
-	<div id="edit-user-form">
-		<%= render 'edit' %>
-	</div>
+		<div id="edit-user-form">
+			<%= render 'edit' %>
+		</div>
+	</section>
 
 	<p><%= link_to 'Sign out', destroy_user_session_path, method: 'delete', class: "button-link button-link-primary" %></p>
 	<p><%= link_to "Back", :back, class: "action-link" %></p>

@@ -24,6 +24,7 @@ class PostItemsController < ApplicationController
 			blog_item.create_or_find_tags(tags)
 			redirect_to user_post_item_path(current_user.handle, post.id)
 		else
+			flash[:alert] = "A title and a body are required." 
 			render :new
 		end
 	end
