@@ -1,11 +1,15 @@
 <h2>Posts from Medium</h2>
-<table>
-<% @mediums.each do |medium| %>
-	<tr>
-		<th><%= link_to medium.title, user_medium_item_path(params[:user_id], medium), class: "content-link" %></th>
-		<td><%= link_to 'Edit', edit_user_medium_item_path(current_user, medium), class: "action-link" %></td>
-		<td><%= link_to 'Delete', user_medium_item_path(current_user, medium), method: :delete, data: { confirm: "Are you sure?" }, class: "action-link" %></td>
-	</tr>
+<% unless @mediums.blank? %>
+	<table>
+	<% @mediums.each do |medium| %>
+		<tr>
+			<th><%= link_to medium.title, user_medium_item_path(params[:user_id], medium), class: "content-link" %></th>
+			<td><%= link_to 'Edit', edit_user_medium_item_path(current_user, medium), class: "action-link" %></td>
+			<td><%= link_to 'Delete', user_medium_item_path(current_user, medium), method: :delete, data: { confirm: "Are you sure?" }, class: "action-link" %></td>
+		</tr>
+	<% end %>
+		
+	</table>
+<% else %>
+	<p>No posts yet!</p>
 <% end %>
-	
-</table>
