@@ -11,4 +11,9 @@ $(document).ready(function(){
 		$(".translucent").css("opacity",".2");
 	});
 
+	$("#choose-style").on("click", function (e) {
+		e.preventDefault();
+		$("#edit-user-form").toggle();
+	});
+
 });
