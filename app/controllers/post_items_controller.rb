@@ -64,6 +64,7 @@ class PostItemsController < ApplicationController
 	end
 
 	def clean_tags_array(tags)
-		tags.delete(' ').split(',')
+		tags = tags.split(',')
+		tags.map { |tag| tag.strip }
 	end
 end
