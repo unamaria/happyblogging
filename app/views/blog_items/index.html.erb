@@ -3,9 +3,10 @@
 	<% unless @tag.blank? %>
 		<h2>Tag: <%= @tag %></h2>
 	<% end %>
-	<% @blogitems.each do |blogitem| %>
+ 	<% @blogitems.each do |blogitem| %>
 		<%= render partial: blogitem.item %>
 	<% end %>
+	<%= will_paginate @blogitems %>
 <% else %>
 	<p>This user has no posts yet!</p>	
 <% end %>
