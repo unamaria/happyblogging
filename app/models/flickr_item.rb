@@ -29,6 +29,7 @@ class FlickrItem < ActiveRecord::Base
 					server: item[:server],
 					secret: item[:secret]
 					)
+				flickr_item.update_attribute(:title, "(no title)") if flickr_item.title.blank? 
 				flickr_item.blog_item = BlogItem.create!(user_id: user.id, item_type: 'FlickrItem')
 			end
 		end
