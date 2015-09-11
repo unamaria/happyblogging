@@ -12,9 +12,11 @@
 	</footer>
 </blockquote>
 
-<h2>Popular blogs</h2>
-<ul>
-	<% @blogs.each do |blog| %>
-		<li><%= link_to blog.handle, user_index_path(blog.handle), class: "content-link" %></li>
-	<% end %>
-</ul>
+<% if !@blogs.blank? %>
+	<h2>Popular blogs</h2>
+	<ul>
+		<% @blogs.each do |blog| %>
+			<li><%= link_to blog.handle, user_index_path(blog.handle), class: "content-link" %></li>
+		<% end %>
+	</ul>
+<% end %>
