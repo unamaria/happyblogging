@@ -7,10 +7,16 @@ class FlickrDetailsController < ApplicationController
 
 	def create
 		flickrID = FlickrContentService.flickrID(params['flickr_detail']['username'])
-		FlickrDetail.create(flickr_detail_params.merge(
-			{nsid: flickrID, user_id: @user.id}))
+		if flickrID
+			FlickrDetail.create(flickr_detail_params.merge(
+				{nsid: flickrID, user_id: @user.id}))
 
-		redirect_to user_path(@user.handle), notice: "Username added successfully."
+			redirect_to user_path(@user.handle), notice: "Username added successfully."
+		else
+			flash.now[:alert] = "Sorry, that user doesn't exist or has no public photos."
+			@flickr_detail = FlickrDetail.new
+			render :new
+		end
 	end
 
 	def edit

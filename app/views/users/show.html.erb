@@ -32,7 +32,7 @@
 					<% if @user.flickr_detail %>
 						<%= link_to 'Update', edit_user_flickr_detail_path(@user.handle, @user.flickr_detail), class: "action-link" %>
 					<% else %>
-						<%= link_to 'Activate', new_user_flickr_detail_path(@user.handle), class: "action-link action-link-primary" %>
+						<%= link_to 'Activate', new_user_flickr_detail_path(@user.handle), class: "action-link action-link" %>
 					<% end %>
 				</td>
 			</tr>
@@ -43,7 +43,7 @@
 					<% if @user.medium_detail %>
 						<%= link_to 'Update', edit_user_medium_detail_path(@user.handle, @user.medium_detail), class: "action-link" %>
 					<% else %>
-						<%= link_to 'Activate', new_user_medium_detail_path(@user.handle), class: "action-link action-link-primary" %>
+						<%= link_to 'Activate', new_user_medium_detail_path(@user.handle), class: "action-link action-link" %>
 					<% end %>
 				</td>
 			</tr>

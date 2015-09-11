@@ -36,7 +36,7 @@ class FlickrContentService
 
 		response = @@conn.get url
 		data = JSON.parse(response.body)
-		unless data['state'] == 'fail'
+		unless data['stat'] == 'fail'
 			data['user']['id']
 		end
 	end
