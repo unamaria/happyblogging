@@ -24,9 +24,9 @@ Users have blog items, a general entity that has a specific item (of one of the 
 
 There is a service for each external source that deals with getting the information and passing it to its correspondent item model that processes that data.
 
-* Medium: with [medium-scrapper](https://github.com/uesteibar/medium-gem) gem, that gets the title, subtitle, content and URL of every post of a given user (by username).
+* **Medium**: with [medium-scrapper](https://github.com/uesteibar/medium-gem) gem, that gets the title, subtitle, content and URL of every post of a given user (by username).
 
-* Flickr: with [faraday](https://github.com/lostisland/faraday) gem and [Flickr API](https://www.flickr.com/services/api/), that provides methods to get the Flickr ID and all the parameters needed to create URLs to both display and link to images of a given user (by username).
+* **Flickr**: with [faraday](https://github.com/lostisland/faraday) gem and [Flickr API](https://www.flickr.com/services/api/), that provides methods to get the Flickr ID and all the parameters needed to create URLs to both display and link to images of a given user (by username).
 
 ### Provide custom styles
 
