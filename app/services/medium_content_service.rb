@@ -14,6 +14,7 @@ class MediumContentService
 				url: post.url
 			}
 		end
+		items.reverse!
 		MediumItem.process_from_api(user, items)
 	end		
 end
