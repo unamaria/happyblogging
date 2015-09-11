@@ -16,10 +16,10 @@
 <%= render partial: 'shared/tweet', :locals => {item: @medium} %>
 
 <% if current_user && current_user.id == @medium.blog_item.user_id %>
-	<p><%= link_to 'Edit', edit_user_medium_item_path(current_user, @medium) %></p>
+	<p><%= link_to 'Edit', edit_user_medium_item_path(current_user, @medium), class: 'action-link' %></p>
 <% end %>
 
-<%= link_to "Back", :back %>
+<%= link_to "Back", :back, class: 'action-link' %>
 
 <h3 class="comments">Comments</h3>
 
