@@ -1,5 +1,6 @@
 <h2>Sign in</h2>
 
+<p><%= link_to "Fill in as a guest", "javascript:;", class: 'guest-user action-link' %></p>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :email %><br />
@@ -19,7 +20,7 @@
   <% end -%>
 
   <div class="actions">
-    <%= f.submit "Sign in", class: 'button button-primary' %>
+    <%= f.submit "Sign in", class: 'button' %>
   </div>
 <% end %>
 

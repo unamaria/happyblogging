@@ -1,6 +1,5 @@
 <h2>Create a new post</h2>
-<p>You can use <a href="http://daringfireball.net/projects/markdown/" target="_blank">Markdown</a>.</p>
-
+<p>You can use <a href="http://daringfireball.net/projects/markdown/" target="_blank">Markdown</a>. <%= link_to "Fill in, dude.", "javascript:;", class: "guest-post action-link" %></p>
 <%= form_tag(user_post_items_path) do %>
   <%= label_tag(:title) %>
   <%= text_field_tag(:title) %>
