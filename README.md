@@ -6,7 +6,7 @@ Blog service built with Ruby on Rails that supports Markdown and features module
 
 Final project for the Web Development bootcamp at Ironhack.
 
-[Check it live](http://happyblogging.herokuapp.com/) (click on Fill in as a guest to sign in without having to sign up).
+[Check it live](http://happyblogging.herokuapp.com/) (click on _Fill in as a guest_ to sign in without having to sign up).
 
 Rails version: 4.2.3
 
@@ -16,9 +16,9 @@ Keywords: Ruby on Rails, PostgreSQL, Puma
 
 ### Database
 
-![Database diagram](/app/assets/images/schema.png)
-
 Users have blog items, a general entity that has a specific item (of one of the different types: local post, photo from flickr, post from medium). This is acomplished with a polymorphic association. Users also have a medium detail and a flickr detail, that store data related to that platform. Lastly, blog items have many tags and many comments.
+
+![Database diagram](/app/assets/images/schema.png)
 
 ### Get content from external sources
 
