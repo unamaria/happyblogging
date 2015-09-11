@@ -43,8 +43,8 @@ class FlickrContentService
 
 	def self.get_photos(user_id)
 		method = 'flickr.people.getPublicPhotos'
-		url = "#{@@api_path}method=#{method}&api_key=#{@@api_key}&user_id=#{user_id}&per_page=10&page=1&format=#{@@format}&nojsoncallback=1"
-		# &per_page=10&page=1 limit results to 10
+		url = "#{@@api_path}method=#{method}&api_key=#{@@api_key}&user_id=#{user_id}&per_page=50&page=1&format=#{@@format}&nojsoncallback=1"
+		# &per_page=50&page=1 limit results to 50
 		response = @@conn.get url
 		data = JSON.parse(response.body)
 		data['photos']['photo'].each_with_object([]) { |photo, array| array << photo['id'] }
